@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <kirna_infinitescroll_js_index>
+        <reference name="root">
+            <action method="setTemplate" ifconfig="infinitescroll/general/enabled"><template>infinitescroll/js.phtml</template></action>
+        </reference>
+    </kirna_infinitescroll_js_index>
+
+    <catalog_category_default>
+        <reference name="head">
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery-1.4.4.min.js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>skin_js</type><name>js/infinitescroll/jquery.infinitescroll.min.js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>../kirna_infinitescroll/js</name></action>
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <reference name="head">
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery-1.4.4.min.js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>skin_js</type><name>js/infinitescroll/jquery.infinitescroll.min.js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><script>../kirna_infinitescroll/js</script></action>
+        </reference>
+    </catalog_category_layered>
+</layout>

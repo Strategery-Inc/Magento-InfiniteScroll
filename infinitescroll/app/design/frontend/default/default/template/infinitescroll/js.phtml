@@ -1,0 +1,20 @@
+<?php $helper = Mage::helper('kirna_infinitescroll'); ?>
+(function($){
+    $(document).ready(function(){
+        $('<?php echo Mage::getStoreConfig('infinitescroll/selectors/content') ?>').infinitescroll({
+            navSelector:'<?php echo Mage::getStoreConfig('infinitescroll/selectors/navigation') ?>',
+            nextSelector:'<?php echo Mage::getStoreConfig('infinitescroll/selectors/next') ?>',
+            itemSelector:'<?php echo Mage::getStoreConfig('infinitescroll/selectors/items') ?>',
+            debug:<?php echo Mage::getStoreConfig('infinitescroll/general/debug') == 1 ? 'true' : 'false' ?>,
+            loadingImg:'<?php echo Mage::getStoreConfig('infinitescroll/design/loading_img') ?>',
+            loadingText:"<?php echo Mage::getStoreConfig('infinitescroll/design/loading_text') ?>",
+            animate:<?php echo Mage::getStoreConfig('infinitescroll/design/animate') == 1 ? 'true' : 'false' ?>,
+            extraScrollPx:<?php echo Mage::getStoreConfig('infinitescroll/design/extra_scroll_px') ?>,
+            donetext:"<?php echo Mage::getStoreConfig('infinitescroll/design/done_text') ?>",
+            bufferPx:<?php echo Mage::getStoreConfig('infinitescroll/design/buffer_px') ?>,
+            localMode:<?php echo Mage::getStoreConfig('infinitescroll/design/local_mode') == 1 ? 'true' : 'false' ?>,
+            dataCallback: <?php echo Mage::getStoreConfig('infinitescroll/callbacks/data_callback') . "\n" ?>
+         }, <?php echo Mage::getStoreConfig('infinitescroll/callbacks/processed_callback') . "\n" ?>
+         );
+    });
+})(jQuery);

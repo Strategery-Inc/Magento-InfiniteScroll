@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <modules>
+    <Kirna_Infinitescroll>
+      <codePool>local</codePool>
+      <active>true</active>
+    </Kirna_Infinitescroll>
+  </modules>
+</config>

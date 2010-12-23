@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * @category   Local
+ * @package    Kirna_Ini
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Kirna_Infinitescroll>
+            <version>0.1</version>
+        </Kirna_Infinitescroll>
+    </modules>
+    <global>
+        <helpers>
+            <kirna_infinitescroll>
+                <class>Kirna_Infinitescroll_Helper</class>
+            </kirna_infinitescroll>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <kirna_infinitescroll>
+                <use>standard</use>
+                <args>
+                    <module>Kirna_Infinitescroll</module>
+                    <frontName>kirna_infinitescroll</frontName>
+                </args>
+            </kirna_infinitescroll>
+        </routers>
+        <layout>
+            <updates>
+                <infinitescroll>
+                    <file>infinitescroll.xml</file>
+                </infinitescroll>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <infinitescroll>
+            <general>
+                <enabled>1</enabled>
+                <debug>0</debug>
+            </general>
+            <selectors>
+                <content>div.category-products</content>
+                <navigation>div.pager</navigation>
+                <next>div.pages a.next:first</next>
+                <items>ul.products-grid</items>
+            </selectors>
+            <design>
+                <loading_img>http://www.infinite-scroll.com/loading.gif</loading_img>
+                <loading_text><![CDATA[<em>Loading the next set of posts...</em>]]></loading_text>
+                <done_text><![CDATA[<em>Congratulations, you've reached the end of the internet.</em>]]></done_text>
+                <animate>0</animate>
+                <local_mode>0</local_mode>
+                <extra_scroll_px>150</extra_scroll_px>
+                <buffer_px>40</buffer_px>
+            </design>
+            <callbacks>
+                <processed_callback><![CDATA[function(elements){decorateGeneric($$('ul.products-grid'),['odd','even','first','last']);]]></processed_callback>
+                <data_callback><![CDATA[function(data, statusText, request){if(!$(this.nextSelector, data).length){if(this.almostDone){this.isDone = true;this.almostDone = false;} else {this.almostDone = true;}}}]]></data_callback>
+            </callbacks>
+        </infinitescroll>
+    </default>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <infinitescroll translate="title" module="infinitescroll">
+                                            <title>Infinite Scroll</title>
+                                            <sort_order>50</sort_order>
+                                        </infinitescroll>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>
