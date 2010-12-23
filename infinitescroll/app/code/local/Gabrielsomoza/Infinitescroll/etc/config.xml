@@ -61,7 +61,7 @@
                 <buffer_px>40</buffer_px>
             </design>
             <callbacks>
-                <processed_callback><![CDATA[function(elements){decorateGeneric($$('ul.products-grid'),['odd','even','first','last']);]]></processed_callback>
+                <processed_callback><![CDATA[function(elements){decorateGeneric($$('ul.products-grid'),['odd','even','first','last']);}]]></processed_callback>
                 <data_callback><![CDATA[function(data, statusText, request){if(!$(this.nextSelector, data).length){if(this.almostDone){this.isDone = true;this.almostDone = false;} else {this.almostDone = true;}}}]]></data_callback>
             </callbacks>
         </infinitescroll>

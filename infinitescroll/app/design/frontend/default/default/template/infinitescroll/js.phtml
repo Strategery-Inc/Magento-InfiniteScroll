@@ -23,6 +23,7 @@ $helper = Mage::helper('gabrielsomoza_infinitescroll'); ?>
             localMode:<?php echo Mage::getStoreConfig('infinitescroll/design/local_mode') == 1 ? 'true' : 'false' ?>,
             dataCallback: <?php echo Mage::getStoreConfig('infinitescroll/callbacks/data_callback') . "\n" ?>
          },
-         <?php echo Mage::getStoreConfig('infinitescroll/callbacks/processed_callback') . "\n" ?>
+            <?php echo Mage::getStoreConfig('infinitescroll/callbacks/processed_callback') . "\n" ?>
+         );
     });
 })(jQuery);
