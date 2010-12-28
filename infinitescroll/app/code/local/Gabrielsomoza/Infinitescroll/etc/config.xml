@@ -47,6 +47,7 @@
             </general>
             <selectors>
                 <content>div.category-products</content>
+                <loading>div.col-main</loading>
                 <navigation>div.pager</navigation>
                 <next>div.pages a.next:first</next>
                 <items>ul.products-grid</items>

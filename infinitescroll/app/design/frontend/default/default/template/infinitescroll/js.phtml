@@ -10,6 +10,7 @@ $helper = Mage::helper('gabrielsomoza_infinitescroll'); ?>
 (function($){
     $(document).ready(function(){
         $('<?php echo Mage::getStoreConfig('infinitescroll/selectors/content') ?>').infinitescroll({
+            loadMsgSelector:'<?php echo Mage::getStoreConfig('infinitescroll/selectors/loading') ?>',
             navSelector:'<?php echo Mage::getStoreConfig('infinitescroll/selectors/navigation') ?>',
             nextSelector:'<?php echo Mage::getStoreConfig('infinitescroll/selectors/next') ?>',
             itemSelector:'<?php echo Mage::getStoreConfig('infinitescroll/selectors/items') ?>',
