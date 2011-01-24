@@ -16,20 +16,20 @@
     </modules>
     <global>
         <helpers>
-            <gabrielsomoza_infinitescroll>
+            <infinitescroll>
                 <class>Gabrielsomoza_Infinitescroll_Helper</class>
-            </gabrielsomoza_infinitescroll>
+            </infinitescroll>
         </helpers>
     </global>
     <frontend>
         <routers>
-            <gabrielsomoza_infinitescroll>
+            <infinitescroll>
                 <use>standard</use>
                 <args>
                     <module>Gabrielsomoza_Infinitescroll</module>
-                    <frontName>gabrielsomoza_infinitescroll</frontName>
+                    <frontName>infinitescroll</frontName>
                 </args>
-            </gabrielsomoza_infinitescroll>
+            </infinitescroll>
         </routers>
         <layout>
             <updates>

@@ -10,7 +10,7 @@
 -->
 <config>
     <sections>
-        <infinitescroll translate="label" module="gabrielsomoza_infinitescroll">
+        <infinitescroll translate="label" module="infinitescroll">
             <label>Infinite Scroll</label>
             <tab>catalog</tab>
             <frontend_type>text</frontend_type>
