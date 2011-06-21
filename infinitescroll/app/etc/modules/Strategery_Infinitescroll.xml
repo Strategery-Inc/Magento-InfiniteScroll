@@ -2,17 +2,17 @@
 <!--
 /*
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
- * @url        http://gabrielsomoza.com/
- * @category   Local
- * @package    Gabrielsomoza_Infinitescroll
+ * @link       http://gabrielsomoza.com/
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 -->
 <config>
   <modules>
-    <Gabrielsomoza_Infinitescroll>
+    <Strategery_Infinitescroll>
       <codePool>local</codePool>
       <active>true</active>
-    </Gabrielsomoza_Infinitescroll>
+    </Strategery_Infinitescroll>
   </modules>
 </config>

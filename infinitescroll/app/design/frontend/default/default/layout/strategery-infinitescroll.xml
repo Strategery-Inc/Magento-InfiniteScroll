@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <!--
-/*
+/**
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
- * @url        http://gabrielsomoza.com/
- * @category   Local
- * @package    Gabrielsomoza_Infinitescroll
+ * @link       http://gabrielsomoza.com/
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll	   
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 -->
 <layout version="0.1.0">
     <infinitescroll_js_index>
         <reference name="root">
-            <action method="setTemplate" ifconfig="infinitescroll/general/enabled"><template>infinitescroll/js.phtml</template></action>
+            <action method="setTemplate" ifconfig="infinitescroll/general/enabled"><template>strategery/infinitescroll/js.phtml</template></action>
         </reference>
     </infinitescroll_js_index>
 
     <catalog_category_default>
         <reference name="head">
             <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery-1.4.4.min.js</name></action>
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>skin_js</type><name>js/infinitescroll/jquery.infinitescroll.min.js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery.infinitescroll.min.js</name></action>
             <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>../infinitescroll/js</name></action>
         </reference>
     </catalog_category_default>
@@ -26,7 +26,7 @@
     <catalog_category_layered>
         <reference name="head">
             <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery-1.4.4.min.js</name></action>
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>skin_js</type><name>js/infinitescroll/jquery.infinitescroll.min.js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery.infinitescroll.min.js</name></action>
             <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><script>../infinitescroll/js</script></action>
         </reference>
     </catalog_category_layered>

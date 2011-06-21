@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <!--
-/*
+/**
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
- * @url        http://gabrielsomoza.com/
- * @category   Local
- * @package    Gabrielsomoza_Infinitescroll
+ * @link       http://gabrielsomoza.com/
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll	   
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 -->
 <config>
     <modules>
-        <Gabrielsomoza_Infinitescroll>
+        <Strategery_Infinitescroll>
             <version>0.1</version>
-        </Gabrielsomoza_Infinitescroll>
+        </Strategery_Infinitescroll>
     </modules>
     <global>
         <helpers>
             <infinitescroll>
-                <class>Gabrielsomoza_Infinitescroll_Helper</class>
+                <class>Strategery_Infinitescroll_Helper</class>
             </infinitescroll>
         </helpers>
     </global>
@@ -26,7 +26,7 @@
             <infinitescroll>
                 <use>standard</use>
                 <args>
-                    <module>Gabrielsomoza_Infinitescroll</module>
+                    <module>Strategery_Infinitescroll</module>
                     <frontName>infinitescroll</frontName>
                 </args>
             </infinitescroll>
@@ -34,7 +34,7 @@
         <layout>
             <updates>
                 <infinitescroll>
-                    <file>infinitescroll.xml</file>
+                    <file>strategery-infinitescroll.xml</file>
                 </infinitescroll>
             </updates>
         </layout>
@@ -47,8 +47,7 @@
             </general>
             <selectors>
                 <content>div.category-products</content>
-                <loading>div.col-main</loading>
-                <navigation>div.pager</navigation>
+                <navigation>div.toolbar</navigation>
                 <next>div.pages a.next:first</next>
                 <items>ul.products-grid</items>
             </selectors>
@@ -59,7 +58,7 @@
                 <animate>0</animate>
                 <local_mode>0</local_mode>
                 <extra_scroll_px>150</extra_scroll_px>
-                <buffer_px>40</buffer_px>
+                <buffer_px>150</buffer_px>
             </design>
             <callbacks>
                 <processed_callback><![CDATA[function(elements){decorateGeneric($$('ul.products-grid'),['odd','even','first','last']);}]]></processed_callback>
