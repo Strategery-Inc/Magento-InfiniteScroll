@@ -13,12 +13,12 @@ Note: if you have a different theme other than the default, you will need to con
 
 Useful Links
 -----
-InfiniteScroll
-Repository: https://github.com/paulirish/infinite-scroll
-Webpage: http://www.infinite-scroll.com/
+InfiniteScroll  
+Repository: https://github.com/paulirish/infinite-scroll  
+Webpage: http://www.infinite-scroll.com/  
 
-jQuery Plugin
-http://www.infinite-scroll.com/infinite-scroll-jquery-plugin/
+jQuery Plugin  
+http://www.infinite-scroll.com/infinite-scroll-jquery-plugin/  
 
-Wordpress Plugin
-http://www.infinite-scroll.com/installation/
+Wordpress Plugin  
+http://www.infinite-scroll.com/installation/  
