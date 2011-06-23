@@ -6,25 +6,9 @@
  * @package    Strategery_Infinitescroll	   
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-$helper = $this->helper('infinitescroll'); ?>
-(function($){
-    $(document).ready(function(){
-        $('<?php echo $helper->getConfigData('selectors/content') ?>').infinitescroll({
-            loadMsgSelector:'<?php echo $helper->getConfigData('selectors/loading') ?>',
-            navSelector:'<?php echo $helper->getConfigData('selectors/navigation') ?>',
-            nextSelector:'<?php echo $helper->getConfigData('selectors/next') ?>',
-            itemSelector:'<?php echo $helper->getConfigData('selectors/items') ?>',
-            debug:<?php echo $helper->getConfigData('general/debug') == 1 ? 'true' : 'false' ?>,
-            loadingImg:'<?php echo $helper->getConfigData('design/loading_img') ?>',
-            loadingText:"<?php echo $helper->getConfigData('design/loading_text') ?>",
-            animate:<?php echo $helper->getConfigData('design/animate') == 1 ? 'true' : 'false' ?>,
-            extraScrollPx:<?php echo $helper->getConfigData('design/extra_scroll_px') ?>,
-            donetext:"<?php echo $helper->getConfigData('design/done_text') ?>",
-            bufferPx:<?php echo $helper->getConfigData('design/buffer_px') ?>,
-            localMode:<?php echo $helper->getConfigData('design/local_mode') == 1 ? 'true' : 'false' ?>,
-            dataCallback: <?php echo $helper->getConfigData('callbacks/data_callback') . "\n" ?>
-         },
-            <?php echo $helper->getConfigData('callbacks/processed_callback') . "\n" ?>
-         );
+$helper = $this->helper('infinitescroll');  ?>
+jQuery(document).ready(function ($) {
+    $('<?php echo $helper->getConfigData('selectors/content') ?>').infinitescroll({
+        <?php echo $helper->getJsConfig(); ?>
     });
-})(jQuery);
+});

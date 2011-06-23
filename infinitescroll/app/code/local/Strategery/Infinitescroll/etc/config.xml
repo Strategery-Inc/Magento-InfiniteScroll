@@ -62,7 +62,7 @@
             </design>
             <callbacks>
                 <processed_callback><![CDATA[function(elements){decorateGeneric($$('ul.products-grid'),['odd','even','first','last']);}]]></processed_callback>
-                <data_callback><![CDATA[function(data, statusText, request){if(!$(this.nextSelector, data).length){if(this.almostDone){this.isDone = true;this.almostDone = false;} else {this.almostDone = true;}}}]]></data_callback>
+                <data_callback><![CDATA[function (data) { if(this.isLastPage) { this.isDone = true; return; } this.isLastPage = $(this.nextSelector, data).length == 0;]]></data_callback>
             </callbacks>
         </infinitescroll>
     </default>
