@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <!--
 /**
+ * InfiniteScroll - Magento Integration
+ * @version    2.0
+ * 
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
  * @category   Strategery
  * @package    Strategery_Infinitescroll	   
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 -->
 <config>
     <modules>
         <Strategery_Infinitescroll>
-            <version>0.1</version>
+            <version>2.0</version>
         </Strategery_Infinitescroll>
     </modules>
     <global>
@@ -62,7 +65,6 @@
             </design>
             <callbacks>
                 <processed_callback><![CDATA[function(elements){decorateGeneric($$('ul.products-grid'),['odd','even','first','last']);}]]></processed_callback>
-                <data_callback><![CDATA[function (data) { if(this.isLastPage) { this.isDone = true; return; } this.isLastPage = $(this.nextSelector, data).length == 0;]]></data_callback>
             </callbacks>
         </infinitescroll>
     </default>

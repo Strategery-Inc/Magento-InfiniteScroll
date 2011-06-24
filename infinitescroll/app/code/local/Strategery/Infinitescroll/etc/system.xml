@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <!--
 /**
+ * InfiniteScroll - Magento Integration
+ * @version    2.0
+ * 
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
  * @category   Strategery
  * @package    Strategery_Infinitescroll	   
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
  -->
 <config>
@@ -14,7 +17,7 @@
             <label>Infinite Scroll</label>
             <tab>catalog</tab>
             <frontend_type>text</frontend_type>
-            <sort_order>10</sort_order>
+            <sort_order>120</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
@@ -175,15 +178,6 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[This function will be called right after appending new elements to the container and setting up animations. Default: function(){}]]></comment>
                         </processed_callback>
-                        <data_callback>
-                            <label>Data Callback</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment><![CDATA[This function will be called right after receiving the next page, and before appending it to the content container. Default: function(){}]]></comment>
-                        </data_callback>
                     </fields>
                 </callbacks>
             </groups>

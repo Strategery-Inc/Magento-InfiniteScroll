@@ -1,10 +1,13 @@
 <?php
 /**
+ * InfiniteScroll - Magento Integration
+ * @version    2.0
+ * 
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
  * @category   Strategery
  * @package    Strategery_Infinitescroll	   
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Strategery_Infinitescroll_JsController extends Mage_Core_Controller_Front_Action {
     public function indexAction() {

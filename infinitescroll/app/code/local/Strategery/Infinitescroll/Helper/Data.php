@@ -1,11 +1,14 @@
 <?php
 
 /**
+ * InfiniteScroll - Magento Integration
+ * @version    2.0
+ * 
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
  * @category   Strategery
  * @package    Strategery_Infinitescroll	   
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
     
@@ -24,7 +27,6 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
             'extraScrollPx' => array('data' => 'design/extra_scroll_px', 'type' => 'integer'),
             'doneText' => array('data' => 'design/done_text', 'type' => 'string'),
             'bufferPx' => array('data' => 'design/buffer_px', 'type' => 'integer'),
-            'dataCallback' => array('data' => 'callbacks/data_callback', 'type' => 'function'),
             'callback' => array('data' => 'callbacks/processed_callback', 'type' => 'function'),
         );
     }
@@ -49,7 +51,8 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
                 $result .= "'{$jsOption}': {$value},\n";
             }
         }
-        return rtrim($result, ",\n");
+        $result .= "'behavior': 'magento'";
+        return $result;
     }
 
 }
