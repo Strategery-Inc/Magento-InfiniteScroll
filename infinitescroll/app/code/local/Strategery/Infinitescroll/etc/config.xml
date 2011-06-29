@@ -50,6 +50,7 @@
                 <navigation>div.toolbar</navigation>
                 <next>div.pages a.next:first</next>
                 <items>ul.products-grid</items>
+                <loading>div.category-products</loading>
             </selectors>
             <design>
                 <loading_img>http://www.infinite-scroll.com/loading.gif</loading_img>

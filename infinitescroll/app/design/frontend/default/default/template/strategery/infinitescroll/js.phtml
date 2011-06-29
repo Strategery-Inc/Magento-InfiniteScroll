@@ -22,7 +22,8 @@ $helper = $this->helper('infinitescroll'); ?>
             donetext:"<?php echo $helper->getConfigData('design/done_text') ?>",
             bufferPx:<?php echo $helper->getConfigData('design/buffer_px') ?>,
             localMode:<?php echo $helper->getConfigData('design/local_mode') == 1 ? 'true' : 'false' ?>,
-            dataCallback: <?php echo $helper->getConfigData('callbacks/data_callback') . "\n" ?>
+            dataCallback: <?php echo $helper->getConfigData('callbacks/data_callback') ?>,
+            behavior: "magento"
          },
             <?php echo $helper->getConfigData('callbacks/processed_callback') . "\n" ?>
          );

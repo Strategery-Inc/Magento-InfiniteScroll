@@ -18,16 +18,18 @@
     <catalog_category_default>
         <reference name="head">
             <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery-1.4.4.min.js</name></action>
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery.infinitescroll.min.js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery.infinitescroll.js</name></action>
             <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>../infinitescroll/js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/behaviors/strategery-magento.js</name></action>
         </reference>
     </catalog_category_default>
 
     <catalog_category_layered>
         <reference name="head">
             <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery-1.4.4.min.js</name></action>
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery.infinitescroll.min.js</name></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery.infinitescroll.js</name></action>
             <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><script>../infinitescroll/js</script></action>
+            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><script>jquery/behaviors/strategery-magento.js</script></action>
         </reference>
     </catalog_category_layered>
 </layout>
