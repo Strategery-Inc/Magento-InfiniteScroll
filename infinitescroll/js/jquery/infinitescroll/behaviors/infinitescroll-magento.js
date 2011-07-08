@@ -1,7 +1,8 @@
 /*
  * @author     Nicolas Far (nicolas.far@usestrategery.com)
  * @category   Strategery
- * @package    Strategery_Infinitescroll	   
+ * @package    Strategery_Infinitescroll	 
+ * @link       http://usestrategery.com  
     
 --------------------------------
 Infinite Scroll Behavior
