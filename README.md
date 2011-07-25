@@ -9,16 +9,20 @@ Installation
 3. Refresh your Magento cache.
 4. Scroll to infinity and beyond!
 
-Note: if you have a different theme other than the default, you will need to configure the plugin by going to <code>System -> Configuration -> Catalog -> Infinite Scroll</code>
+Configuration
+-----
+If you have a different theme other than the default, you will need to configure the plugin by going to <code>System -> Configuration -> Catalog -> Infinite Scroll</code>.  
+
+We created a Wiki Page where you can find [Configuration Instructions for Popular Themes](https://github.com/gabrielsomoza/Magento-InfiniteScroll/wiki/Configuration-Instructions-for-Popular-Themes) in the Magento community. Feel free to contribute instructions for your theme!  
 
 Useful Links
 -----
-InfiniteScroll  
+**InfiniteScroll**  
 Repository: https://github.com/paulirish/infinite-scroll  
 Webpage: http://www.infinite-scroll.com/  
 
-jQuery Plugin  
+**jQuery Plugin**  
 http://www.infinite-scroll.com/infinite-scroll-jquery-plugin/  
 
-Wordpress Plugin  
+**Wordpress Plugin**  
 http://www.infinite-scroll.com/installation/  
