@@ -21,7 +21,7 @@
 <config>
   <modules>
     <Strategery_Infinitescroll>
-      <codePool>local</codePool>
+      <codePool>community</codePool>
       <active>true</active>
     </Strategery_Infinitescroll>
   </modules>
