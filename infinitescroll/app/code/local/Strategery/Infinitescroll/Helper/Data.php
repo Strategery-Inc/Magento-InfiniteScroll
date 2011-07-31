@@ -2,16 +2,23 @@
 
 /**
  * InfiniteScroll - Magento Integration
- * @version    2.0
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll	   
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
  * 
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
- * @category   Strategery
- * @package    Strategery_Infinitescroll	   
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
-    
+
     protected $_optionsMap;
 
     public function __construct() {
@@ -30,15 +37,15 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
             'callback' => array('data' => 'callbacks/processed_callback', 'type' => 'function'),
         );
     }
-    
+
     public function getConfigData($node) {
         return Mage::getStoreConfig('infinitescroll/' . $node);
     }
 
     public function getJsConfig() {
-        foreach($this->_optionsMap as $jsOption => $config) {
-            if($value = $this->getConfigData($config['data'])) {
-                switch($config['type']) {
+        foreach ($this->_optionsMap as $jsOption => $config) {
+            if ($value = $this->getConfigData($config['data'])) {
+                switch ($config['type']) {
                     case 'string':
                         $value = '"' . $value . '"'; // wrap in double quotes
                         break;
@@ -46,7 +53,7 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
                         $value = $value == 1 ? 'true' : 'false';
                         break;
                     default:
-                        // nothing
+                    // nothing
                 }
                 $result .= "'{$jsOption}': {$value},\n";
             }

@@ -1,18 +1,29 @@
 /*
- * @author     Nicolas Far (nicolas.far@usestrategery.com)
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
  * @category   Strategery
- * @package    Strategery_Infinitescroll	 
- * @link       http://usestrategery.com  
-    
---------------------------------
-Infinite Scroll Behavior
-Behavior for Magento
---------------------------------
-+ https://github.com/paulirish/infinitescroll/
-+ version 2.0b2.110617
-+ Copyright 2011 Paul Irish & Luke Shumard
-+ Licensed under the MIT license
-+ Documentation: http://infinite-scroll.com/
+ * @package    Strategery_Infinitescroll	   
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ * 
+ * @author     Nicolas Far (nicolas.far@usestrategery.com)
+     
+    --------------------------------
+    Infinite Scroll Behavior
+    Behavior for Magento
+    --------------------------------
+    INFINITE SCROLL:
+    + https://github.com/paulirish/infinitescroll/
+    + version 2.0b2.110617
+    + Copyright 2011 Paul Irish & Luke Shumard
+    + Licensed under the MIT license
+    + Documentation: http://infinite-scroll.com/
 */
 (function($){
     $(document).ready(function(){
