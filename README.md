@@ -13,7 +13,7 @@ Configuration
 -----
 If you have a different theme other than the default, you will need to configure the plugin by going to <code>System -> Configuration -> Catalog -> Infinite Scroll</code>.  
 
-We created a Wiki Page where you can find [Configuration Instructions for Popular Themes](https://github.com/gabrielsomoza/Magento-InfiniteScroll/wiki/Configuration-Instructions-for-Popular-Themes) in the Magento community. Feel free to contribute instructions for your theme!  
+We created a Wiki Page where you can find [Configuration Instructions for Popular Themes](https://github.com/Strategery-Inc/Magento-InfiniteScroll/wiki/Configuration-Instructions-for-Popular-Themes) in the Magento community. Feel free to contribute instructions for your theme!  
 
 Useful Links
 -----
