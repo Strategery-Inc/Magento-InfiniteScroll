@@ -2,8 +2,8 @@
 	--------------------------------
 	Infinite Scroll
 	--------------------------------
-	+ https://github.com/paulirish/infinitescroll
-	+ version 2.0b2.110706
+	+ https://github.com/paulirish/infinite-scroll
+	+ version 2.0b2.111027
 	+ Copyright 2011 Paul Irish & Luke Shumard
 	+ Licensed under the MIT license
 	
@@ -73,6 +73,8 @@
 
             var instance = this,
 				opts = instance.options;
+				
+			opts.v = '2.0b2.111027';
 
             // if behavior is defined and this function is extended, call that instead of default
 			if (!!opts.behavior && this['_binding_'+opts.behavior] !== undefined) {
@@ -106,9 +108,8 @@
 
             // If selectors from options aren't valid, return false
             if (!this._validate(options)) { return false; }
-
             // Define options and shorthand
-            var opts = this.options = $.extend({}, $.infinitescroll.defaults, options),
+            var opts = this.options = $.extend(true, {}, $.infinitescroll.defaults, options),
 				// get the relative URL - everything past the domain name.
 				relurl = /(.*?\/\/).*?(\/.*)/,
 				path = $(opts.nextSelector).attr('href');
@@ -139,7 +140,6 @@
             opts.loading.start = opts.loading.start || function() {
 				
 				$(opts.navSelector).hide();
-
 				opts.loading.msg
 					.appendTo(opts.loading.selector)
 					.show(opts.loading.speed, function () {
@@ -158,7 +158,7 @@
 					instance['_callback_'+opts.behavior].call($(opts.contentSelector)[0], data);
 				}
 				if (callback) {
-					callback.call($(opts.contentSelector)[0], data);
+					callback.call($(opts.contentSelector)[0], data, opts);
 				}
 			};
 
@@ -169,7 +169,7 @@
         // Console log wrapper
         _debug: function infscr_debug() {
 
-			if (this.options.debug) {
+			if (this.options && this.options.debug) {
                 return window.console && console.log.call(console, arguments);
             }
 
@@ -189,7 +189,7 @@
             if (!!opts.pathParse) {
 
                 this._debug('pathParse manual');
-                return opts.pathParse;
+                return opts.pathParse();
 
             } else if (path.match(/^(.*?)\b2\b(.*?$)/)) {
                 path = path.match(/^(.*?)\b2\b(.*?$)/).slice(1);
@@ -691,7 +691,7 @@
 
             if (scrollTimeout) { clearTimeout(scrollTimeout); }
             scrollTimeout = setTimeout(function () {
-                jQuery.event.handle.apply(context, args);
+                $.event.handle.apply(context, args);
             }, execAsap === "execAsap" ? 0 : 100);
         }
     };

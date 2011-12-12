@@ -19,35 +19,69 @@
  */
 -->
 <layout version="0.1.0">
-    <infinitescroll_js_index>
-        <reference name="root">
-            <action method="setTemplate" ifconfig="infinitescroll/general/enabled"><template>strategery/infinitescroll/js.phtml</template></action>
-        </reference>
-    </infinitescroll_js_index>
+	<infinitescroll_js_index>
+		<reference name="root">
+			<action method="setTemplate" ifconfig="infinitescroll/general/enabled">
+				<template>strategery/infinitescroll/js.phtml</template>
+			</action>
+		</reference>
+	</infinitescroll_js_index>
 
-    <catalog_category_default>
-        <reference name="head">
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery.latest.min.js</name></action>
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/infinitescroll/jquery.infinitescroll.js</name></action>
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/infinitescroll/behaviors/infinitescroll-magento.js</name></action>
-        </reference>
-        <reference name="before_body_end">
-                <block type="core/text" name="infinitescroll_config">
-                        <action method="setText"><text><![CDATA[<script type="text/javascript" src="/infinitescroll/js"></script>]]></text></action>
-                </block>
-        </reference>
-    </catalog_category_default>
+	<catalog_category_default>
+		<reference name="head">
+			<action method="addItem" ifconfig="infinitescroll/general/enabled">
+				<type>js</type>
+				<name>jquery/jquery.latest.min.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll/jquery.infinitescroll.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/text" name="infinitescroll_config">
+				<action method="setText">
+					<text><![CDATA[<script type="text/javascript" src="/infinitescroll/js"></script>]]></text>
+				</action>
+			</block>
+		</reference>
+		<reference name="product_list_toolbar">
+			<action method="setTemplate" ifconfig="infinitescroll/design/hide_toolbar">
+				<template>strategery/infinitescroll/toolbar.phtml</template>
+			</action>
+		</reference>
+	</catalog_category_default>
 
-    <catalog_category_layered>
-        <reference name="head">
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/jquery.latest.min.js</name></action>
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/infinitescroll/jquery.infinitescroll.js</name></action>
-            <action method="addItem" ifconfig="infinitescroll/general/enabled"><type>js</type><name>jquery/infinitescroll/behaviors/infinitescroll-magento.js</name></action>
-        </reference>
-        <reference name="before_body_end">
-                <block type="core/text" name="infinitescroll_config"> 
-                        <action method="setText"><text><![CDATA[<script type="text/javascript" src="/infinitescroll/js"></script>]]></text></action>
-                </block>
-        </reference>
-    </catalog_category_layered>
+	<catalog_category_layered>
+		<reference name="head">
+			<action method="addItem" ifconfig="infinitescroll/general/enabled">
+				<type>js</type>
+				<name>jquery/jquery.latest.min.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll/jquery.infinitescroll.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/text" name="infinitescroll_config"> 
+				<action method="setText">
+					<text><![CDATA[<script type="text/javascript" src="/infinitescroll/js"></script>]]></text>
+				</action>
+			</block>
+		</reference>
+		<reference name="product_list_toolbar">
+			<action method="setTemplate" ifconfig="infinitescroll/design/hide_toolbar">
+				<template>strategery/infinitescroll/toolbar.phtml</template>
+			</action>
+		</reference>
+	</catalog_category_layered>
 </layout>

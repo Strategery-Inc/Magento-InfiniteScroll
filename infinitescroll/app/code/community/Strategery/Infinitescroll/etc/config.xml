@@ -57,7 +57,7 @@
             </general>
             <selectors>
                 <content>div.category-products</content>
-                <navigation>div.toolbar</navigation>
+                <navigation>div.toolbar:last</navigation>
                 <next>div.pages a.next:first</next>
                 <items>ul.products-grid</items>
                 <loading>div.category-products</loading>
