@@ -56,6 +56,7 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
 		if(!$optionsMap){
 			$optionsMap=$this->_optionsMap;
 		}
+		$result='';
         foreach ($optionsMap as $jsOption => $config) {
             if ($value = $this->getConfigData($config['data']) || $config['type']=='object' || $config['type']=='literal') {
                 switch ($config['type']) {

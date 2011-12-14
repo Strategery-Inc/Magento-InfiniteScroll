@@ -22,3 +22,16 @@ http://www.infinite-scroll.com/infinite-scroll-jquery-plugin/
 
 Wordpress Plugin  
 http://www.infinite-scroll.com/installation/  
+
+
+Release Notes - Version 2.0.3
+-----
+Added Magento 1.3 support.
+
+On the configuration for default you will see the selectors for Magento 1.6, if you need to configure on Magento 1.3 you should set this selectors:
+
+Content: div.catalog-listing
+Navigation: table.pager:last, table.view-by:last
+Next: td.pages ol li:last a
+Items: ul.products-grid
+Loading: div.category-products

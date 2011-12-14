@@ -97,6 +97,14 @@
                             <show_in_store>1</show_in_store>
                             <comment>Selector for all items you'll retrieve.</comment>
                         </items>
+                        <loading>
+                            <label>Loading</label>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Selector for loading message and bar.</comment>
+                        </loading>
                     </fields>
                 </selectors>
                 <design translate="label">
