@@ -32,7 +32,7 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
 					'finishedMsg'=>array('data' => 'design/done_text', 'type' => 'string'),
 					'img'=>array('data' => 'design/loading_img', 'type' => 'string'),
 					'msgText'=>array('data' => 'design/loading_text', 'type' => 'string'),
-					'selector'=>array('data' => 'selectors/loading', 'type' => 'string'),
+					'selector'=>array('data' => 'selectors/loading', 'type' => 'string-JSIE8FIX'),
 				)
 			),
             'navSelector' => array('data' => 'selectors/navigation', 'type' => 'string'),
@@ -44,7 +44,7 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
             'doneText' => array('data' => 'design/done_text', 'type' => 'string'),
             'bufferPx' => array('data' => 'design/buffer_px', 'type' => 'integer'),
             'callback' => array('data' => 'callbacks/processed_callback', 'type' => 'function'),
-			'behavior' => array('data' => 'magento', 'type'=>'literal')
+			'behavior' => array('data' => 'magento', 'type'=>'literal-JSIE8FIX')
 		);
     }
 
@@ -58,6 +58,12 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
 		}
 		$result='';
         foreach ($optionsMap as $jsOption => $config) {
+			$colon=',';
+			$jsIE8Fix=strpos($config['type'],'-JSIE8FIX');
+			if($jsIE8Fix!==false){
+				$colon=''; 
+				$config['type']=substr($config['type'],0,$jsIE8Fix);
+			}
             if ($value = $this->getConfigData($config['data']) || $config['type']=='object' || $config['type']=='literal') {
                 switch ($config['type']) {
                     case 'string':
@@ -84,7 +90,7 @@ class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract {
                     default:
 						// nothing
                 }
-				$result .= "'{$jsOption}': {$value},\n";
+				$result .= "'{$jsOption}': {$value}$colon\n";
             }
         }
         return $result;
