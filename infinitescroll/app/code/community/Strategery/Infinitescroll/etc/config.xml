@@ -1,17 +1,27 @@
 <?xml version="1.0"?>
 <!--
 /**
- * @author     Gabriel Somoza (me@gabrielsomoza.com)
- * @link       http://gabrielsomoza.com/
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
  * @category   Strategery
  * @package    Strategery_Infinitescroll	   
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ * 
+ * @author     Gabriel Somoza (me@gabrielsomoza.com)
+ * @link       http://gabrielsomoza.com/
  */
 -->
 <config>
     <modules>
         <Strategery_Infinitescroll>
-            <version>0.1</version>
+            <version>2.0.4</version>
         </Strategery_Infinitescroll>
     </modules>
     <global>
@@ -47,9 +57,10 @@
             </general>
             <selectors>
                 <content>div.category-products</content>
-                <navigation>div.toolbar</navigation>
+                <navigation>div.toolbar:last</navigation>
                 <next>div.pages a.next:first</next>
                 <items>ul.products-grid</items>
+                <loading>div.category-products</loading>
             </selectors>
             <design>
                 <loading_img>http://www.infinite-scroll.com/loading.gif</loading_img>
@@ -62,7 +73,6 @@
             </design>
             <callbacks>
                 <processed_callback><![CDATA[function(elements){decorateGeneric($$('ul.products-grid'),['odd','even','first','last']);}]]></processed_callback>
-                <data_callback><![CDATA[function(data, statusText, request){if(!$(this.nextSelector, data).length){if(this.almostDone){this.isDone = true;this.almostDone = false;} else {this.almostDone = true;}}}]]></data_callback>
             </callbacks>
         </infinitescroll>
     </default>

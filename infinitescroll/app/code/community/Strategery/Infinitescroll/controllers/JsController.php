@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-/*
+<?php
+/**
  * InfiniteScroll - Magento Integration
  *
  * NOTICE OF LICENSE
@@ -17,12 +16,10 @@
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
  */
--->
-<config>
-  <modules>
-    <Strategery_Infinitescroll>
-      <codePool>community</codePool>
-      <active>true</active>
-    </Strategery_Infinitescroll>
-  </modules>
-</config>
+class Strategery_Infinitescroll_JsController extends Mage_Core_Controller_Front_Action {
+    public function indexAction() {
+        $this->getResponse()->setHeader('Content-Type', 'text/javascript');
+        $this->loadLayout();
+        $this->renderLayout();
+    }
+}
