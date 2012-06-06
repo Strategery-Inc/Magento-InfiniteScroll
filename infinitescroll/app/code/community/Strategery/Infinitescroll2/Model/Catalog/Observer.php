@@ -80,6 +80,13 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 			$event = $observer->getEvent();
 			$collection = $event->getCollection();
 			$pageLoaded = Mage::getSingleton('checkout/session')->getData('pageLoaded');
+			$nextPageSaved = Mage::getSingleton('checkout/session')->getData('nextPage');
+			$tmpNext = false;
+			// restore page number:
+			$restorePageSize = Mage::getSingleton('checkout/session')->getData('defautlPageSize');
+			$collection->setPageSize($restorePageSize);
+			Mage::getSingleton('checkout/session')->setData('recursiveCollection',false);
+			// last page:
 			$lastPageNumber = $collection->getLastPageNumber();
 			// actions:
 			if(Mage::getSingleton('checkout/session')->getData('recursiveCollection'))
@@ -93,11 +100,13 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 					}
 					$collection->setCurPage($pageLoaded);
 				}
+				/*
 				$toolbar = Mage::app()->getLayout()
 					->getBlock('content')
 					->getChild('category.products')
 					->getChild('product_list')
 					->getChild('toolbar');
+				*/
 				/* TOOLBAR MODIFICATIONS: pending add JS modification to get this works.
 				$tmpNext = $collection->getPageSize();
 				$limits = $toolbar->getAvailableLimit();
@@ -109,18 +118,18 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 				}
 				$toolbar->setCollection($collection)->setData('_current_limit',$tmpNext);
 				*/
-				$restorePageSize = Mage::getSingleton('checkout/session')->getData('defautlPageSize');
-				$collection->setPageSize($restorePageSize);
-				Mage::getSingleton('checkout/session')->setData('recursiveCollection',false);
 			}
-			if($helper->isScrollCall() && $pageLoaded>1 && $pageLoaded<$lastPageNumber)
+			if(!$tmpNext)
 			{
-				Mage::getSingleton('checkout/session')->setData('nextPage',$pageLoaded+1);
+				$tmpNext=$pageLoaded+1;
 			}
-			$tmpNext=$pageLoaded+1;
-			if($helper->isScrollCall() && $tmpNext>$lastPageNumber)
+			if($helper->isScrollCall() && $nextPageSaved>$lastPageNumber)
 			{
 				die();
+			}
+			if($helper->isScrollCall() && $pageLoaded>1 && $pageLoaded<=$lastPageNumber)
+			{
+				Mage::getSingleton('checkout/session')->setData('nextPage',$tmpNext);
 			}
 		}
 		return $this;

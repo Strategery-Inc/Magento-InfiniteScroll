@@ -19,7 +19,7 @@
 $helper = $this->helper('infinitescroll2');
 ?>
 jQuery(document).ready(function ($) {
-    $('<?php echo $helper->getConfigData('selectors/content') ?>').infinitescroll2({
+    $('<?php echo $helper->getConfigData('selectors/content') ?>').infinitescroll({
         <?php echo $helper->getJsConfig(); ?>
     });
 });

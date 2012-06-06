@@ -13,14 +13,14 @@
 
 (function (window, $, undefined) {
 	
-	$.infinitescroll2 = function infscr(options, callback, element) {
+	$.infinitescroll = function infscr(options, callback, element) {
 		
 		this.element = $(element);
 		this._create(options, callback);
 	
 	};
 	
-	$.infinitescroll2.defaults = {
+	$.infinitescroll.defaults = {
 		loading: {
 			finished: undefined,
 			finishedMsg: "<em>Congratulations, you've reached the end of the internet.</em>",
@@ -60,7 +60,7 @@
 	};
 
 
-    $.infinitescroll2.prototype = {
+    $.infinitescroll.prototype = {
 
         /*	
         ----------------------------
@@ -109,7 +109,7 @@
             // If selectors from options aren't valid, return false
             if (!this._validate(options)) { return false; }
             // Define options and shorthand
-            var opts = this.options = $.extend(true, {}, $.infinitescroll2.defaults, options),
+            var opts = this.options = $.extend(true, {}, $.infinitescroll.defaults, options),
 				// get the relative URL - everything past the domain name.
 				relurl = /(.*?\/\/).*?(\/.*)/,
 				path = $(opts.nextSelector).attr('href');
@@ -602,7 +602,7 @@
 	
     */
 
-    $.fn.infinitescroll2 = function infscr_init(options, callback) {
+    $.fn.infinitescroll = function infscr_init(options, callback) {
 
 
         var thisCall = typeof options;
@@ -616,7 +616,7 @@
 
                 this.each(function () {
 
-                    var instance = $.data(this, 'infinitescroll2');
+                    var instance = $.data(this, 'infinitescroll');
 
                     if (!instance) {
                         // not setup yet
@@ -640,7 +640,7 @@
 
                 this.each(function () {
 
-                    var instance = $.data(this, 'infinitescroll2');
+                    var instance = $.data(this, 'infinitescroll');
 
                     if (instance) {
 
@@ -650,7 +650,7 @@
                     } else {
 
                         // initialize new instance
-                        $.data(this, 'infinitescroll2', new $.infinitescroll2(options, callback, this));
+                        $.data(this, 'infinitescroll', new $.infinitescroll(options, callback, this));
 
                     }
 

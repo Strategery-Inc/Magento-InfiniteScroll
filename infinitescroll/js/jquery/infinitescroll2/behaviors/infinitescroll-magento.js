@@ -19,7 +19,7 @@
     Behavior for Magento
     --------------------------------
     INFINITE SCROLL:
-    + https://github.com/paulirish/infinitescroll2/
+    + https://github.com/paulirish/infinitescroll/
     + version 2.0b2.110617
     + Copyright 2011 Paul Irish & Luke Shumard
     + Licensed under the MIT license
@@ -27,7 +27,7 @@
 */
 (function($){
     $(document).ready(function(){
-        $.extend($.infinitescroll2.prototype,{
+        $.extend($.infinitescroll.prototype,{
             _loadcallback_magento: function infscr_loadcallback_magento (box,data) {
                 var opts = this.options,
                     callback = this.options.callback, // GLOBAL OBJECT FOR CALLBACK

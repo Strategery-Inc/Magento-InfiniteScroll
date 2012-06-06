@@ -39,11 +39,11 @@
 			</action>
 			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
 				<type>js</type>
-				<name>jquery/infinitescroll2/jquery.infinitescroll2.js</name>
+				<name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
 			</action>
 			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
 				<type>js</type>
-				<name>jquery/infinitescroll2/behaviors/infinitescroll2-magento.js</name>
+				<name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
 			</action>
 		</reference>
 		<reference name="before_body_end">
@@ -68,11 +68,11 @@
 			</action>
 			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
 				<type>js</type>
-				<name>jquery/infinitescroll2/jquery.infinitescroll2.js</name>
+				<name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
 			</action>
 			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
 				<type>js</type>
-				<name>jquery/infinitescroll2/behaviors/infinitescroll2-magento.js</name>
+				<name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
 			</action>
 		</reference>
 		<reference name="before_body_end">
@@ -97,11 +97,11 @@
 			</action>
 			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
 				<type>js</type>
-				<name>jquery/infinitescroll2/jquery.infinitescroll2.js</name>
+				<name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
 			</action>
 			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
 				<type>js</type>
-				<name>jquery/infinitescroll2/behaviors/infinitescroll2-magento.js</name>
+				<name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
 			</action>
 		</reference>
 		<reference name="before_body_end">
@@ -126,11 +126,11 @@
 			</action>
 			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
 				<type>js</type>
-				<name>jquery/infinitescroll2/jquery.infinitescroll2.js</name>
+				<name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
 			</action>
 			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
 				<type>js</type>
-				<name>jquery/infinitescroll2/behaviors/infinitescroll2-magento.js</name>
+				<name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
 			</action>
 		</reference>
 		<reference name="before_body_end">
