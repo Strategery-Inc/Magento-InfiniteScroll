@@ -21,29 +21,32 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 	
 	public function modifyCollection($observer)
 	{
+		// reset:
 		$this->hardReset();
+		// helper:
 		$helper = Mage::helper('infinitescroll2');
-		if(Mage::registry('current_category') && $helper->isMemoryActive())
+		// observer data:
+		$event = $observer->getEvent();
+		$collection = $event->getCollection();
+		$lastPageNumber = $collection->getLastPageNumber();
+		if(Mage::registry('current_category') && $helper->isMemoryActive() && $lastPageNumber>1)
 		{
 			// info:
-			$event = $observer->getEvent();
-			$collection = $event->getCollection();
 			$pageId = Mage::registry('current_category')->getId();
 			$pageByParam = $helper->getNextPageNumber();
-			$lastPageNumber = $collection->getLastPageNumber();
+			$pageLoaded = $helper->loadMemory($pageId);
+			// default page size save:
+			$defaultPageSize = $collection->getPageSize();
+			Mage::getSingleton('checkout/session')->setData('defautlPageSize',$defaultPageSize);
 			// actions:
 			if(!$helper->isScrollCall())
 			{
 				if(!Mage::getSingleton('checkout/session')->getData('recursiveCollection'))
 				{
-					$pageLoaded = $helper->loadMemory($pageId);
 					if($pageLoaded>1)
 					{
 						Mage::getSingleton('checkout/session')->setData('recursiveCollection',true);
 						Mage::getSingleton('checkout/session')->setData('pageLoaded',$pageLoaded);
-						// default page size save:
-						$defaultPageSize = $collection->getPageSize();
-						Mage::getSingleton('checkout/session')->setData('defautlPageSize',$defaultPageSize);
 						// replace page size:
 						$tmpPageSize = $defaultPageSize*$pageLoaded;
 						$collection->setPageSize($tmpPageSize);
@@ -58,11 +61,18 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 			else
 			{
 				$nextPage = Mage::getSingleton('checkout/session')->getData('nextPage');
+				if($pageLoaded>$nextPage)
+				{
+					$nextPage = $pageLoaded+1;
+				}
 				if($nextPage>1 && $nextPage<=$lastPageNumber)
 				{
 					$pageByParam=$nextPage;
 				}
-				$helper->saveMemory($pageByParam,$pageId);
+				if($nextPage<=$lastPageNumber)
+				{
+					$helper->saveMemory($pageByParam,$pageId);
+				}
 				$collection->setCurPage($pageByParam);
 				Mage::getSingleton('checkout/session')->setData('pageLoaded',$pageByParam);
 			}
@@ -72,13 +82,15 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 	
 	public function restoreCollection($observer)
 	{
+		// helper:
 		$helper = Mage::helper('infinitescroll2');
-		if(Mage::registry('current_category') && $helper->isMemoryActive())
+		// observer data:
+		$event = $observer->getEvent();
+		$collection = $event->getCollection();
+		$lastPageNumber = $collection->getLastPageNumber();
+		if(Mage::registry('current_category') && $helper->isMemoryActive() && $lastPageNumber>1)
 		{
 			// info:
-			$helper = Mage::helper('infinitescroll2');
-			$event = $observer->getEvent();
-			$collection = $event->getCollection();
 			$pageLoaded = Mage::getSingleton('checkout/session')->getData('pageLoaded');
 			$nextPageSaved = Mage::getSingleton('checkout/session')->getData('nextPage');
 			$tmpNext = false;
@@ -100,24 +112,6 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 					}
 					$collection->setCurPage($pageLoaded);
 				}
-				/*
-				$toolbar = Mage::app()->getLayout()
-					->getBlock('content')
-					->getChild('category.products')
-					->getChild('product_list')
-					->getChild('toolbar');
-				*/
-				/* TOOLBAR MODIFICATIONS: pending add JS modification to get this works.
-				$tmpNext = $collection->getPageSize();
-				$limits = $toolbar->getAvailableLimit();
-				$limits[$tmpNext] = $tmpNext;
-				foreach($limits as $L)
-				{
-					$toolbar->addPagerLimit('grid', $L, $L);
-					$toolbar->addPagerLimit('list', $L, $L);
-				}
-				$toolbar->setCollection($collection)->setData('_current_limit',$tmpNext);
-				*/
 			}
 			if(!$tmpNext)
 			{

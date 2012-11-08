@@ -25,7 +25,7 @@
 <config>
     <modules>
         <Strategery_Infinitescroll2>
-            <version>2.1.0</version>
+            <version>2.1.2</version>
         </Strategery_Infinitescroll2>
     </modules>
     <global>
@@ -107,7 +107,7 @@
                 <each_page>30</each_page>
             </memory>
             <callbacks>
-                <processed_callback><![CDATA[function(elements){decorateGeneric($$('ul.products-grid'),['odd','even','first','last']);}]]></processed_callback>
+                <processed_callback><![CDATA[ function(elements){ decorateGeneric($$('ul.products-grid'), ['odd','even','first','last']); } ]]></processed_callback>
             </callbacks>
         </infinitescroll2>
     </default>
