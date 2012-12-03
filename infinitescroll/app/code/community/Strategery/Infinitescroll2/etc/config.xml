@@ -40,6 +40,15 @@
             </infinitescroll2>
         </models>
 		<events>
+            <controller_action_postdispatch_adminhtml_system_config_save>
+                <observers>
+                    <infinitescroll2_save_observer>
+						<type>singleton</type>
+						<class>Strategery_Infinitescroll2_Model_Catalog_Observer</class>
+						<method>refreshCache</method>
+                    </infinitescroll2_save_observer>
+                </observers>
+            </controller_action_postdispatch_adminhtml_system_config_save>		
 			<catalog_product_collection_load_before>
 				<observers>
 					<infinitescroll2_catalog_observer>

@@ -141,5 +141,22 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 			$helper->getSession()->setData('infiniteScroll','');
 		}
 	}
+
+	public function refreshCache($observer)
+	{
+        try {
+            if (Mage::app()->getRequest()->getParam("section") == "infinitescroll2") {
+                Mage::getModel('core/design_package')->cleanMergedJsCss();
+                Mage::dispatchEvent('clean_media_cache_after');
+            }
+        }
+        catch (Exception $e) {
+            $this->_getSession()->addError($e->getMessage());
+        }
+        catch (Mage_Core_Exception $e) {
+            $this->_getSession()->addError($e->getMessage());
+        }
+            
+	}
 	
 }
