@@ -148,6 +148,8 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
             if (Mage::app()->getRequest()->getParam("section") == "infinitescroll2") {
                 Mage::getModel('core/design_package')->cleanMergedJsCss();
                 Mage::dispatchEvent('clean_media_cache_after');
+                $cache = Mage::getSingleton('core/cache');                
+                $cache->flush("infinitescroll2");
             }
         }
         catch (Exception $e) {
