@@ -27,7 +27,7 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 		$helper = Mage::helper('infinitescroll2');
 		// observer data:
 		$event = $observer->getEvent();
-		$collection = $event->getCollection();
+        $collection = $this->_getCache($observer, Mage::registry('current_category'));
 		$lastPageNumber = $collection->getLastPageNumber();
 		if(Mage::registry('current_category') && $helper->isMemoryActive() && $lastPageNumber>1)
 		{
@@ -86,7 +86,7 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 		$helper = Mage::helper('infinitescroll2');
 		// observer data:
 		$event = $observer->getEvent();
-		$collection = $event->getCollection();
+        $collection = $this->_getCache($observer, Mage::registry('current_category'));
 		$lastPageNumber = $collection->getLastPageNumber();
 		if(Mage::registry('current_category') && $helper->isMemoryActive() && $lastPageNumber>1)
 		{
@@ -160,5 +160,19 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
         }
             
 	}
+    protected function _getCache ($observer, $category)
+    {
+    $cache = Mage::getSingleton('core/cache');                    
+    if ($collection = $cache->load("infinitescroll2_collection")) { 
+        return $collection; 
+    }
+    else
+    { 
+        $collection = $observer->getCollection(); 
+        $cache->save($collection, "infinitescroll2_collection"); 
+        return $collection; 
+    }
+
+    }
 	
 }

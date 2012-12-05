@@ -39,6 +39,11 @@
                 <class>Strategery_Infinitescroll2_Model</class>
             </infinitescroll2>
         </models>
+        <blocks>
+            <infinitescroll>
+                <class>Strategery_Infinitescroll2_Block</class>
+            </infinitescroll>
+        </blocks>        
 		<events>
             <controller_action_postdispatch_adminhtml_system_config_save>
                 <observers>

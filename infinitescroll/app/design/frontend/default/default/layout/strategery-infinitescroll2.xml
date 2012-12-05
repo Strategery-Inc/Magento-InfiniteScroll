@@ -117,9 +117,9 @@
 			</action>
 		</reference>
 		<reference name="before_body_end">
-			<block type="core/text" name="infinitescroll2_config"> 
-				<action method="setText">
-					<text><![CDATA[<script type="text/javascript" src="/infinitescroll2/js"></script>]]></text>
+			<block type="infinitescroll/config" name="infinitescroll2_config"> 
+				<action method="setJsText">
+					<text>infinitescroll2/js</text>
 				</action>
 			</block>
 		</reference>
@@ -146,9 +146,9 @@
 			</action>
 		</reference>
 		<reference name="before_body_end">
-			<block type="core/text" name="infinitescroll2_config"> 
-				<action method="setText">
-					<text><![CDATA[<script type="text/javascript" src="/infinitescroll2/js"></script>]]></text>
+			<block type="infinitescroll/config" name="infinitescroll2_config"> 
+				<action method="setJsText">
+					<text>infinitescroll2/js</text>
 				</action>
 			</block>
 		</reference>
