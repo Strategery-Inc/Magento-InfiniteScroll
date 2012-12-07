@@ -17,15 +17,14 @@
  * @link       http://gabrielsomoza.com/
  */
 $cache = Mage::getSingleton('core/cache');
-if ($jsConfig   =   $cache->load("infinitescroll2_jsConfig")){
+if ($jsConfig   =   $cache->load("infinitescroll2_jsConfig")) {
     $configData =   $cache->load("infinitescroll2_configData");
 } else {
     $jsConfig   =   $helper->getJsConfig();
     $configData =   $helper->getConfigData('selectors/content');
     $cache->save($jsData, "infinitescroll2_jsConfig", array("infinitescroll2"));
     $cache->save($configData, "infinitescroll2_configData", array("infinitescroll2"));
-} 
-
+}
 ?>
 jQuery(document).ready(function ($) {
     $('<?php echo $configData ?>').infinitescroll({

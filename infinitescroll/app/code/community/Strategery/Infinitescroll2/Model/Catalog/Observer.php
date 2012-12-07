@@ -27,7 +27,7 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 		$helper = Mage::helper('infinitescroll2');
 		// observer data:
 		$event = $observer->getEvent();
-        $collection = $this->_getCache($observer, Mage::registry('current_category'));
+        $collection = $this->_getCache($observer, Mage::registry('current_category')->getId());
 		$lastPageNumber = $collection->getLastPageNumber();
 		if(Mage::registry('current_category') && $helper->isMemoryActive() && $lastPageNumber>1)
 		{
@@ -86,7 +86,7 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 		$helper = Mage::helper('infinitescroll2');
 		// observer data:
 		$event = $observer->getEvent();
-        $collection = $this->_getCache($observer, Mage::registry('current_category'));
+        $collection = $event->getCollection();
 		$lastPageNumber = $collection->getLastPageNumber();
 		if(Mage::registry('current_category') && $helper->isMemoryActive() && $lastPageNumber>1)
 		{
@@ -148,31 +148,26 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
             if (Mage::app()->getRequest()->getParam("section") == "infinitescroll2") {
                 Mage::getModel('core/design_package')->cleanMergedJsCss();
                 Mage::dispatchEvent('clean_media_cache_after');
-                $cache = Mage::getSingleton('core/cache');                
+                $cache = Mage::getSingleton('core/cache');
                 $cache->flush("infinitescroll2");
             }
         }
         catch (Exception $e) {
             $this->_getSession()->addError($e->getMessage());
         }
-        catch (Mage_Core_Exception $e) {
-            $this->_getSession()->addError($e->getMessage());
-        }
-            
 	}
-    protected function _getCache ($observer, $category)
-    {
-    $cache = Mage::getSingleton('core/cache');                    
-    if ($collection = $cache->load("infinitescroll2_collection")) { 
-        return $collection; 
-    }
-    else
-    { 
-        $collection = $observer->getCollection(); 
-        $cache->save($collection, "infinitescroll2_collection"); 
-        return $collection; 
-    }
 
+    protected function _getCache ($observer, $categoryId)
+    {
+        $cache = Mage::getSingleton('core/cache');
+        if ($collection = $cache->load("infinitescroll2_collection_".$categoryId)) {
+            return $collection;
+        }
+        else {
+            $collection = $observer->getCollection();
+            $cache->save($collection, "infinitescroll2_collection_".$categoryId,array('infinitescroll2'));
+            return $collection;
+        }
     }
 	
 }
