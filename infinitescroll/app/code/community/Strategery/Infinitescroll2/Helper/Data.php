@@ -174,5 +174,26 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 		}
 		return $result;
 	}
+
+    public function isCacheEnabled()
+    {
+        return $this->getConfigData('cache/enabled');
+    }
+
+    public function flushCache()
+    {
+        $result = false;
+        try {
+            Mage::getModel('core/design_package')->cleanMergedJsCss();
+            Mage::dispatchEvent('clean_media_cache_after');
+            $cache = Mage::getSingleton('core/cache');
+            $cache->flush("infinitescroll2");
+            $result = '1';
+        }
+        catch (Exception $e) {
+            $this->_getSession()->addError($e->getMessage());
+        }
+        return $result;
+    }
 	
 }

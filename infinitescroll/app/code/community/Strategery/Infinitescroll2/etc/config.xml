@@ -40,9 +40,9 @@
             </infinitescroll2>
         </models>
         <blocks>
-            <infinitescroll>
+            <infinitescroll2>
                 <class>Strategery_Infinitescroll2_Block</class>
-            </infinitescroll>
+            </infinitescroll2>
         </blocks>        
 		<events>
             <controller_action_postdispatch_adminhtml_system_config_save>
@@ -98,6 +98,9 @@
                 <enabled>1</enabled>
                 <debug>0</debug>
             </general>
+            <cache>
+                <enabled>1</enabled>
+            </cache>
             <selectors>
                 <content>div.category-products</content>
                 <navigation>div.toolbar:last</navigation>

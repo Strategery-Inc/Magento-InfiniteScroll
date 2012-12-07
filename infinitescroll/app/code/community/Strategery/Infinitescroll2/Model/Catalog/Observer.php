@@ -144,30 +144,25 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 
 	public function refreshCache($observer)
 	{
-        try {
-            if (Mage::app()->getRequest()->getParam("section") == "infinitescroll2") {
-                Mage::getModel('core/design_package')->cleanMergedJsCss();
-                Mage::dispatchEvent('clean_media_cache_after');
-                $cache = Mage::getSingleton('core/cache');
-                $cache->flush("infinitescroll2");
-            }
-        }
-        catch (Exception $e) {
-            $this->_getSession()->addError($e->getMessage());
+        if (Mage::app()->getRequest()->getParam("section") == "infinitescroll2") {
+            Mage::helper('infinitescroll2')->flushCache();
         }
 	}
 
     protected function _getCache ($observer, $categoryId)
     {
-        $cache = Mage::getSingleton('core/cache');
-        if ($collection = $cache->load("infinitescroll2_collection_".$categoryId)) {
-            return $collection;
+        $collection = $observer->getCollection();
+        if(Mage::helper('infinitescroll2')->isCacheEnabled())
+        {
+            $cache = Mage::getSingleton('core/cache');
+            if ($cacheCollection = $cache->load("infinitescroll2_collection_".$categoryId)) {
+                $collection = $cacheCollection;
+            }
+            else {
+                $cache->save($collection, "infinitescroll2_collection_".$categoryId,array('infinitescroll2'));
+            }
         }
-        else {
-            $collection = $observer->getCollection();
-            $cache->save($collection, "infinitescroll2_collection_".$categoryId,array('infinitescroll2'));
-            return $collection;
-        }
+        return $collection;
     }
 	
 }
