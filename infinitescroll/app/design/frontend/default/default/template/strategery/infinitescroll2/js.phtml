@@ -16,6 +16,7 @@
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
  */
+$helper = Mage::helper('infinitescroll2');
 $cache = Mage::getSingleton('core/cache');
 if ($jsConfig   =   $cache->load("infinitescroll2_jsConfig")) {
     $configData =   $cache->load("infinitescroll2_configData");
