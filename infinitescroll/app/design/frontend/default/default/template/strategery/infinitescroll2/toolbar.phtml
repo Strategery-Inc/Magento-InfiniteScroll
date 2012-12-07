@@ -1,0 +1,55 @@
+<?php
+/**
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll2	   
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ * 
+ * @author     Gabriel Somoza (me@gabrielsomoza.com)
+ * @link       http://gabrielsomoza.com/
+ * 
+ * Update 2.0.0
+ * @author     Damian A. Pastorini (admin@dwdesigner.com)
+ * @link       http://www.dwdesigner.com/
+ */
+?>
+<?php if(Mage::getVersion()>1.3): ?>
+	<?php if($this->getCollection()->getSize()): ?>
+		<div class="toolbar" style="display:none;">
+			<?php echo $this->getPagerHtml() ?>
+		</div>
+	<?php endif ?>
+<?php else: ?>
+	<?php if($this->getCollection()->getSize() && $this->getLastPageNum()>1): ?>
+		<table class="pager" cellspacing="0" style="display:none;">
+			<tr>
+				<td class="pages">
+					<strong><?php echo $this->__('Page:') ?></strong>
+					<ol>
+					<?php if (!$this->isFirstPage()): ?>
+						<li><a href="<?php echo $this->getPreviousPageUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/pager_arrow_left.gif') ?>" alt="<?php echo $this->__('Previous') ?>" /></a></li>
+					<?php endif ?>
+					<?php foreach ($this->getPages() as $_page): ?>
+						<?php if ($this->isPageCurrent($_page)): ?>
+							<li><span class="on"><?php echo $_page ?></span></li>
+						<?php else: ?>
+							<li><a href="<?php echo $this->getPageUrl($_page) ?>"><?php echo $_page ?></a></li>
+						<?php endif ?>
+					<?php endforeach;; ?>
+					<?php if (!$this->isLastPage()): ?>
+						<li><a href="<?php echo $this->getNextPageUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/pager_arrow_right.gif') ?>" alt="<?php echo $this->__('Next') ?>" /></a></li>
+					<?php endif ?>
+					</ol>
+				</td>
+			</tr>
+		</table>
+	<?php endif ?>
+<?php endif; ?>

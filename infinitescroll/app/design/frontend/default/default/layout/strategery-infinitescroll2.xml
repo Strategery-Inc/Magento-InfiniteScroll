@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll2	   
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ * 
+ * @author     Gabriel Somoza (me@gabrielsomoza.com)
+ * @link       http://gabrielsomoza.com/
+ * 
+ * Update 2.0.0
+ * @author     Damian A. Pastorini (admin@dwdesigner.com)
+ * @link       http://www.dwdesigner.com/
+ */
+-->
+<layout version="0.1.0">
+	<infinitescroll2_js_index>
+		<reference name="root">
+			<action method="setTemplate" ifconfig="infinitescroll2/general/enabled">
+				<template>strategery/infinitescroll2/js.phtml</template>
+			</action>
+		</reference>
+	</infinitescroll2_js_index>
+
+	<catalog_category_default>
+		<reference name="head">
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/jquery.latest.min.js</name>
+			</action>
+			<!--
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/https.js</name>
+			</action>
+			-->
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+            <block type="infinitescroll2/config" name="infinitescroll2_config">
+                <action method="setJsText">
+                    <text>infinitescroll2/js</text>
+                </action>
+            </block>
+		</reference>
+		<reference name="product_list_toolbar">
+			<action method="setTemplate" ifconfig="infinitescroll2/design/hide_toolbar">
+				<template>strategery/infinitescroll2/toolbar.phtml</template>
+			</action>
+		</reference>
+	</catalog_category_default>
+
+	<catalog_category_layered>
+		<reference name="head">
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/jquery.latest.min.js</name>
+			</action>
+			<!--
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/https.js</name>
+			</action>
+			-->
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+            <block type="infinitescroll2/config" name="infinitescroll2_config">
+                <action method="setJsText">
+                    <text>infinitescroll2/js</text>
+                </action>
+            </block>
+		</reference>
+		<reference name="product_list_toolbar">
+			<action method="setTemplate" ifconfig="infinitescroll2/design/hide_toolbar">
+				<template>strategery/infinitescroll2/toolbar.phtml</template>
+			</action>
+		</reference>
+	</catalog_category_layered>
+
+    <catalogsearch_result_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/jquery.latest.min.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="infinitescroll2/config" name="infinitescroll2_config">
+				<action method="setJsText">
+					<text>infinitescroll2/js</text>
+				</action>
+			</block>
+		</reference>
+		<reference name="product_list_toolbar">
+			<action method="setTemplate" ifconfig="infinitescroll2/design/hide_toolbar">
+				<template>strategery/infinitescroll2/toolbar.phtml</template>
+			</action>
+		</reference>
+    </catalogsearch_result_index>
+	
+	<catalogsearch_advanced_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/jquery.latest.min.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
+			</action>
+			<action method="addItem" ifconfig="infinitescroll2/general/enabled">
+				<type>js</type>
+				<name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="infinitescroll2/config" name="infinitescroll2_config">
+				<action method="setJsText">
+					<text>infinitescroll2/js</text>
+				</action>
+			</block>
+		</reference>
+		<reference name="product_list_toolbar">
+			<action method="setTemplate" ifconfig="infinitescroll2/design/hide_toolbar">
+				<template>strategery/infinitescroll2/toolbar.phtml</template>
+			</action>
+		</reference>
+	</catalogsearch_advanced_index>
+	
+</layout>

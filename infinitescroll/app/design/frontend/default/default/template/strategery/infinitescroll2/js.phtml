@@ -1,0 +1,36 @@
+<?php
+/**
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll2	   
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ * 
+ * @author     Gabriel Somoza (me@gabrielsomoza.com)
+ * @link       http://gabrielsomoza.com/
+ */
+$helper = Mage::helper('infinitescroll2');
+$cache = Mage::getSingleton('core/cache');
+if ($jsConfig   =   $cache->load("infinitescroll2_jsConfig")) {
+    $configData =   $cache->load("infinitescroll2_configData");
+} else {
+    $jsConfig   =   $helper->getJsConfig();
+    $configData =   $helper->getConfigData('selectors/content');
+    $cache->save($jsData, "infinitescroll2_jsConfig", array("infinitescroll2"));
+    $cache->save($configData, "infinitescroll2_configData", array("infinitescroll2"));
+}
+?>
+jQuery(document).ready(function ($) {
+    $('<?php echo $configData ?>').infinitescroll({
+        <?php echo $jsConfig; ?>
+    },
+    <?php echo Mage::getStoreConfig('infinitescroll2/callbacks/processed_callback')?>
+    );
+});

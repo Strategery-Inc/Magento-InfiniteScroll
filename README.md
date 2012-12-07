@@ -1,28 +1,48 @@
-Magento InfiniteScroll Integration
+Strategery InfiniteScroll 2
 =====================
-A Magento module to automatically load the next page of products when the user scrolls down the page. Easy to install and configure, this module works 100% out of the box with Magento's default theme.
+This extension is for when the user reaches the end of the current product list, the next page is loaded automatically by AJAX after the end of the list. Easy to install and configure, this module works 100% out of the box with Magento's default theme, and also gives to you the posibility to configurate the custom selectors of your custom theme. Now you can get a more friendly UI by helping the user to save clicks and time.
 
-Installation
+Installation:
 -----
-1. Download the compressed package using the "Downloads" button above.
-2. Extract and copy the contents of the 'infinitescoll' folder directly into your site's webroot.
-3. Refresh your Magento cache.
-4. Scroll to infinity and beyond!
+- Download from Magento Connect: http://www.magentocommerce.com/magento-connect/strategery-infinitescroll-2-9213.html
+- Configure the selectos for your theme on System / Configuration seccion.
+- Refresh your Magento cache.
+- Scroll to infinity and beyond!
 
-Note: if you have a different theme other than the default, you will need to configure the plugin by going to <code>System -> Configuration -> Catalog -> Infinite Scroll</code>
+Configuration:
+-----
+If you have a different theme other than the default, you will need to copy the default theme files to your custom theme folder and configure the plugin by going to System / Configuration / Catalog / Infinite Scroll.
+NOTE: If you have another JS module that apply some behave to the product list remember to use our callback function to assign the JS behave to the products loaded by InfiniteScroll.
+
+Demo:
+-----
+
+http://demo.usestrategery.com/infinite-scroll
+Admin: http://demo.usestrategery.com/infinite-scroll/admin
+User: demo
+Password: demo1234
 
 Useful Links
 -----
-InfiniteScroll  
+**InfiniteScroll**  
 Repository: https://github.com/paulirish/infinite-scroll  
 Webpage: http://www.infinite-scroll.com/  
 
-jQuery Plugin  
+**jQuery Plugin**  
 http://www.infinite-scroll.com/infinite-scroll-jquery-plugin/  
 
+<<<<<<< HEAD
+**Wordpress Plugin**  
+http://www.infinite-scroll.com/installation/  
+=======
 Wordpress Plugin  
 http://www.infinite-scroll.com/installation/  
 
+
+Release Notes - Version 2.1.4
+-----
+- New features: cache, memory function, new options in system / configuration.
+- Fixes: layout issues, JS controller issue.
 
 Release Notes - Version 2.0.3
 -----
@@ -35,3 +55,4 @@ Navigation: table.pager:last, table.view-by:last
 Next: td.pages ol li:last a
 Items: ul.products-grid
 Loading: div.category-products
+>>>>>>> 2.0

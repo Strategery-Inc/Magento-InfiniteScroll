@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * InfiniteScroll2 - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll2	   
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ * 
+ * @author     Gabriel Somoza (me@gabrielsomoza.com)
+ * @link       http://gabrielsomoza.com/
+ * 
+ * Update 2.0.0
+ * @author     Damian A. Pastorini (admin@dwdesigner.com)
+ * @link       http://www.dwdesigner.com/
+ */
+ -->
+<config>
+    <tabs>
+        <strategery translate="label" module="infinitescroll2">
+            <label>Strategery Inc. Extensions</label>
+            <sort_order>201</sort_order>
+        </strategery>
+    </tabs>
+    <sections>
+        <infinitescroll2 translate="label" module="infinitescroll2">
+            <label>Infinite Scroll 2</label>
+            <tab>strategery</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>120</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <debug>
+                            <label>Debug Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </debug>
+                    </fields>
+                </general>
+                <cache translate="label">
+                    <label>Cache</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <flush>
+                            <label>Full InfiniteScroll 2 Cache</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>infinitescroll2/flush</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <flush_tag>infinitescroll2</flush_tag>
+                            <flush_url>infinitescroll2/cache/flush</flush_url>
+                        </flush>
+                    </fields>
+                </cache>
+                <selectors translate="label">
+                    <label>Selectors</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <content>
+                            <label>Content</label>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Selector for the element that surrounds the items you will be loading more of.</comment>
+                        </content>
+                        <navigation>
+                            <label>Navigation</label>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Selector for the paged navigation.</comment>
+                        </navigation>
+                        <next>
+                            <label>Next</label>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Selector for the link to the next page.</comment>
+                        </next>
+                        <items>
+                            <label>Items</label>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Selector for all items you'll retrieve.</comment>
+                        </items>
+                        <loading>
+                            <label>Loading</label>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Selector for loading message and bar.</comment>
+                        </loading>
+                    </fields>
+                </selectors>
+                <design translate="label">
+                    <label>Design</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <loading_img>
+                            <label>Loading Image</label>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loading_img>
+                        <loading_text>
+                            <label>Loading Text</label>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loading_text>
+                        <done_text>
+                            <label>Done Text</label>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </done_text>
+                        <animate>
+                            <label>Animate</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Automatically scroll the page when new content loads.</comment>
+                        </animate>
+                        <hide_toolbar>
+                            <label>Hide Toolbar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_toolbar>
+                        <local_mode>
+                            <label>Local Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Instead of watching the entire window scrolling, watch only the element this plugin was called on (set in Selectors->Content).</comment>
+                        </local_mode>
+                        <extra_scroll_px>
+                            <label>Extra Scroll (px)</label>
+                            <validate>validate-digits</validate>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Number of pixels the page will scroll in addition to the height of the loaded DIV. Animate must be 'yes' in order for this to take effect.</comment>
+                        </extra_scroll_px>
+                        <buffer_px>
+                            <label>Buffer (px)</label>
+                            <validate>validate-digits</validate>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Set an offset before page end from which the content will start to load. A high number will load the next page a long time before the user reaches the bottom of the screen.</comment>
+                        </buffer_px>
+                    </fields>
+                </design>
+                <memory translate="label">
+                    <label>Scroll Memory</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled>
+                            <label>Active scroll memory?</label>
+							<comment>When you go from the product list to a PDP and then click on the "back" button the product list should load all the products until where the customer had stopped scrolling.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <each_page>
+                            <label>Remember scroll for each product list?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </each_page>
+                        <limit>
+                            <label>Limit number of pages to load</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit>
+                    </fields>
+                </memory>
+                <callbacks translate="label">
+                    <label>Callbacks</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>6</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <processed_callback>
+                            <label>Processed Callback</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[This function will be called right after appending new elements to the container and setting up animations. Default: function(){}]]></comment>
+                        </processed_callback>
+                    </fields>
+                </callbacks>
+            </groups>
+        </infinitescroll2>
+    </sections>
+</config>
