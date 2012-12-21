@@ -27,7 +27,12 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 		$helper = Mage::helper('infinitescroll2');
 		// observer data:
 		$event = $observer->getEvent();
-        $collection = $this->_getCache($observer, Mage::registry('current_category')->getId());
+        $cacheName = str_replace('/','_',Mage::app()->getRequest()->getRequestString());
+        if(Mage::registry('current_category'))
+        {
+            $cacheName = Mage::registry('current_category')->getId();
+        }
+        $collection = $this->_getCache($observer, $cacheName);
 		$lastPageNumber = $collection->getLastPageNumber();
 		if(Mage::registry('current_category') && $helper->isMemoryActive() && $lastPageNumber>1)
 		{
