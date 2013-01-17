@@ -31,10 +31,6 @@ Webpage: http://www.infinite-scroll.com/
 **jQuery Plugin**  
 http://www.infinite-scroll.com/infinite-scroll-jquery-plugin/  
 
-<<<<<<< HEAD
-**Wordpress Plugin**  
-http://www.infinite-scroll.com/installation/  
-=======
 Wordpress Plugin  
 http://www.infinite-scroll.com/installation/  
 
@@ -55,4 +51,3 @@ Navigation: table.pager:last, table.view-by:last
 Next: td.pages ol li:last a
 Items: ul.products-grid
 Loading: div.category-products
->>>>>>> 2.0
