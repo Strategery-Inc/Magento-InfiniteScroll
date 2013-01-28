@@ -39,6 +39,11 @@ Wordpress Plugin
 http://www.infinite-scroll.com/installation/  
 
 
+Release Notes - Version 2.1.5/2.1.6
+-----
+- New features: new options in system / configuration for different instances.
+- Fixes: callback function as required option, cache fixed, category event fixed.
+
 Release Notes - Version 2.1.4
 -----
 - New features: cache, memory function, new options in system / configuration.
