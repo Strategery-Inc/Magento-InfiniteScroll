@@ -100,6 +100,12 @@
                 <enabled>1</enabled>
                 <debug>0</debug>
             </general>
+            <instances>
+                <grid>1</grid>
+                <layer>1</layer>
+                <search>1</search>
+                <advanced>1</advanced>
+            </instances>
             <cache>
                 <enabled>1</enabled>
             </cache>
