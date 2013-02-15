@@ -17,10 +17,10 @@ NOTE: If you have another JS module that apply some behave to the product list r
 Demo:
 -----
 
-http://demo.usestrategery.com/infinite-scroll
-Admin: http://demo.usestrategery.com/infinite-scroll/admin
-User: demo
-Password: demo1234
+InfiniteScroll: http://demo.usestrategery.com/infinite-scroll/electronics/all-products.html  
+Admin: http://demo.usestrategery.com/infinite-scroll/admin  
+User: demo  
+Password: demo1234  
 
 Useful Links
 -----
