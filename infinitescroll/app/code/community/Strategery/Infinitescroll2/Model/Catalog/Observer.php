@@ -170,20 +170,12 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 
     protected function _whereAreWe()
     {
-
-        if (Mage::registry('current_category') != NULL) {
-            if (Mage::registry('current_category')) {
-                $where = "grid"; 
-            }
-            if (Mage::registry('current_category')->getIsAnchor()) {
-                $where = "layer"; 
-            }
+        if (Mage::registry('current_category')) { $where = "grid"; }
+        if(is_object(Mage::registry('current_category')) && Mage::registry('current_category')->getIsAnchor()) {
+            $where = "layer";
         }
-        
         if (Mage::app()->getRequest()->getControllerName() == "result"){ $where = "search"; }
-        
         if (Mage::app()->getRequest()->getControllerName() == "advanced") { $where = "advanced"; }
-        
         return $where;
     }
     
