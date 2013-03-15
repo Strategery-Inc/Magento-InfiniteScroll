@@ -23,7 +23,7 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 	{
         // check general and instance enable:
 	    $whereare = $this->_whereAreWe();
-	    if(Mage::getStoreConfig('infinitescroll2/general/enable') && Mage::getStoreConfig('infinitescroll2/instances/'.$whereare))
+	    if(Mage::getStoreConfig('infinitescroll2/general/enabled') && Mage::getStoreConfig('infinitescroll2/instances/'.$whereare))
 	    {
 		    // reset:
 		    $this->hardReset();
@@ -98,7 +98,7 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 	{
         // check general and instance enable:
         $whereare = $this->_whereAreWe();
-        if(Mage::getStoreConfig('infinitescroll2/general/enable') && Mage::getStoreConfig('infinitescroll2/instances/'.$whereare))
+        if(Mage::getStoreConfig('infinitescroll2/general/enabled') && Mage::getStoreConfig('infinitescroll2/instances/'.$whereare))
         {
 		    // helper:
 		    $helper = Mage::helper('infinitescroll2');
