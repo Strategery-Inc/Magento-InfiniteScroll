@@ -187,6 +187,9 @@
         // find the number to increment in the path.
         _determinepath: function infscr_determinepath(path) {
 
+            var protocol = (document.location.protocol == "https:" ? "https:" : "http:");
+            path = path.replace("http:", protocol);
+
             var opts = this.options;
 
             // if behavior is defined and this function is extended, call that instead of default
