@@ -23,7 +23,7 @@ if ($jsConfig   =   $cache->load("infinitescroll2_jsConfig")) {
 } else {
     $jsConfig   =   $helper->getJsConfig();
     $configData =   $helper->getConfigData('selectors/content');
-    $cache->save($jsData, "infinitescroll2_jsConfig", array("infinitescroll2"));
+    $cache->save($jsConfig, "infinitescroll2_jsConfig", array("infinitescroll2"));
     $cache->save($configData, "infinitescroll2_configData", array("infinitescroll2"));
 }
 ?>
