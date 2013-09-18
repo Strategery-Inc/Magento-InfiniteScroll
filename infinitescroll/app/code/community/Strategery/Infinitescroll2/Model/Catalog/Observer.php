@@ -30,7 +30,6 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 		    // helper:
 		    $helper = Mage::helper('infinitescroll2');
 		    // observer data:
-		    $event = $observer->getEvent();
             $cacheName = str_replace('/','_',Mage::app()->getRequest()->getRequestString());
             if(Mage::registry('current_category'))
             {
@@ -90,8 +89,8 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 				    Mage::getSingleton('checkout/session')->setData('pageLoaded',$pageByParam);
 			    }
 		    }
-		    return $this;
         }
+        return $this;
 	}
 	
 	public function restoreCollection($observer)
@@ -144,8 +143,8 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 				    Mage::getSingleton('checkout/session')->setData('nextPage',$tmpNext);
 			    }
 		    }
-		    return $this;
-        }		    
+        }
+        return $this;
 	}
 	
 	public function hardReset()
@@ -170,6 +169,7 @@ class Strategery_Infinitescroll2_Model_Catalog_Observer
 
     protected function _whereAreWe()
     {
+        $where = 'grid';
         if (Mage::registry('current_category')) { $where = "grid"; }
         if(is_object(Mage::registry('current_category')) && Mage::registry('current_category')->getIsAnchor()) {
             $where = "layer";
