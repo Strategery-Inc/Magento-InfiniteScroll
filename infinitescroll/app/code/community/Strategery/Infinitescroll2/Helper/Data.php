@@ -71,10 +71,11 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 				$colon=''; 
 				$config['type']=substr($config['type'],0,$jsIE8Fix);
 			}
-            if ($value = $this->getConfigData($config['data']) || $config['type']=='object' || $config['type']=='literal') {
+			$value = $this->getConfigData($config['data']);
+            if ($value || $config['type']=='object' || $config['type']=='literal') {
                 switch ($config['type']) {
                     case 'string':
-                        $value = '"' . $this->getConfigData($config['data']) . '"'; // wrap in double quotes
+                        $value = '"' . $value . '"'; // wrap in double quotes
                         break;
                     case 'boolean':
                         $value = $value == 1 ? 'true' : 'false';
@@ -195,5 +196,11 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
         }
         return $result;
     }
+
+
+	public function isEnabled()
+	{
+		return Mage::getStoreConfig('infinitescroll2/general/enabled');
+	}
 	
 }
