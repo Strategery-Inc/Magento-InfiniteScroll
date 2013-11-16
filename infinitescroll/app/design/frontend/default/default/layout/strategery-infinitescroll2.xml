@@ -23,14 +23,6 @@
  */
 -->
 <layout version="0.1.0">
-	<infinitescroll2_js_index>
-		<reference name="root">
-			<action method="setTemplate" ifconfig="infinitescroll2/general/enabled">
-				<template>strategery/infinitescroll2/js.phtml</template>
-			</action>
-		</reference>
-	</infinitescroll2_js_index>
-
 
     <catalog_category_default>
         <update handle="infinitescroll2"/>
@@ -51,29 +43,18 @@
 
     <infinitescroll2>
         <reference name="head">
-            <action method="addItem" ifconfig="infinitescroll2/general/enabled">
-                <type>js</type>
-                <name>jquery/jquery.latest.min.js</name>
-            </action>
             <!--
             <action method="addItem" ifconfig="infinitescroll2/general/enabled">
                 <type>js</type>
                 <name>jquery/infinitescroll2/https.js</name>
             </action>
             -->
-            <action method="addItem" ifconfig="infinitescroll2/general/enabled">
-                <type>js</type>
-                <name>jquery/infinitescroll2/jquery.infinitescroll.js</name>
-            </action>
-            <action method="addItem" ifconfig="infinitescroll2/general/enabled">
-                <type>js</type>
-                <name>jquery/infinitescroll2/behaviors/infinitescroll-magento.js</name>
-            </action>
+
         </reference>
         <reference name="before_body_end">
-            <block type="infinitescroll2/config" name="infinitescroll2_config">
-                <action method="setJsText">
-                    <text>infinitescroll2/js</text>
+            <block type="infinitescroll2/init" name="infinitescroll2_init">
+                <action method="setTemplate">
+                    <template>strategery/infinitescroll2/init.phtml</template>
                 </action>
             </block>
         </reference>

@@ -26,11 +26,9 @@ class Strategery_Infinitescroll2_Model_Observer
 	 */
 	public function modifyCollection($observer)
 	{
-        // check general and instance enable:
-	    $whereare = $this->_whereAreWe();
 		/* @var $helper Strategery_Infinitescroll2_Helper_Data */
 		$helper = Mage::helper('infinitescroll2');
-	    if($helper->isEnabled() && Mage::getStoreConfig('infinitescroll2/instances/'.$whereare))
+	    if($helper->isEnabledInCurrentPage())
 	    {
 		    // reset:
 		    $this->_hardReset();
@@ -50,12 +48,7 @@ class Strategery_Infinitescroll2_Model_Observer
 					$pageByParam = $helper->getNextPageNumber();
 					$pageLoaded = $helper->loadMemory($pageId);
 					// chek page size or default
-					if (Mage::getStoreConfig('infinitescroll2/instances/size_'.$whereare.'')){
-						$defaultPageSize = Mage::getStoreConfig('infinitescroll2/instances/size_'.$whereare.'');
-					}
-					else{
-						$defaultPageSize = $collection->getPageSize();
-					}
+					$defaultPageSize = $helper->getSizeLimitForCurrentPage() ? : $collection->getPageSize();
 
 					Mage::getSingleton('checkout/session')->setData('defautlPageSize',$defaultPageSize);
 					// actions:
@@ -112,10 +105,9 @@ class Strategery_Infinitescroll2_Model_Observer
 	public function restoreCollection($observer)
 	{
         // check general and instance enable:
-        $whereare = $this->_whereAreWe();
 		/* @var $helper Strategery_Infinitescroll2_Helper_Data */
 		$helper = Mage::helper('infinitescroll2');
-        if($helper->isEnabled() && Mage::getStoreConfig('infinitescroll2/instances/'.$whereare))
+        if($helper->isEnabledInCurrentPage())
         {
 			$category = Mage::registry('current_category');
 		    if($category && $helper->isMemoryActive() )
@@ -182,26 +174,9 @@ class Strategery_Infinitescroll2_Model_Observer
         }
 	}
 
-    protected function _whereAreWe()
-    {
-		// TODO: we could do this with the full path to the request directly
-        $where = 'grid';
-		/** @var Mage_Catalog_Model_Category $currentCategory */
-		$currentCategory = Mage::registry('current_category');
-        if ($currentCategory) {
-			$where = "grid";
-			if($currentCategory->getIsAnchor()){
-				$where = "layer";
-			}
-		}
-		$controller = Mage::app()->getRequest()->getControllerName();
-        if ( $controller == "result"){ $where = "search"; }
-        else if ( $controller == "advanced") { $where = "advanced"; }
-        return $where;
-    }
-    
     protected function _getCache ($observer, $categoryId)
     {
+		/** @var Mage_Catalog_Model_Resource_Product_Collection $collection */
         $collection = $observer->getCollection();
         if(Mage::helper('infinitescroll2')->isCacheEnabled())
         {

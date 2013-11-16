@@ -202,5 +202,40 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 	{
 		return Mage::getStoreConfig('infinitescroll2/general/enabled');
 	}
-	
+
+
+	public function getCurrentPageType()
+	{
+		// TODO: we could do this with the full path to the request directly
+		$where = 'grid';
+		/** @var Mage_Catalog_Model_Category $currentCategory */
+		$currentCategory = Mage::registry('current_category');
+		if ($currentCategory) {
+			$where = "grid";
+			if($currentCategory->getIsAnchor()){
+				$where = "layer";
+			}
+		}
+		$controller = Mage::app()->getRequest()->getControllerName();
+		if ( $controller == "result"){ $where = "search"; }
+		else if ( $controller == "advanced") { $where = "advanced"; }
+		return $where;
+	}
+
+	/**
+	 * check general and instance enable
+	 * @return bool
+	 */
+	public function isEnabledInCurrentPage()
+	{
+		$pageType = $this->getCurrentPageType();
+		return $this->isEnabled() && Mage::getStoreConfig('infinitescroll2/instances/'.$pageType);
+	}
+
+	public function getSizeLimitForCurrentPage()
+	{
+		$pageType = $this->getCurrentPageType();
+		return Mage::getStoreConfig('infinitescroll2/instances/size_'.$pageType.'');
+	}
+
 }
