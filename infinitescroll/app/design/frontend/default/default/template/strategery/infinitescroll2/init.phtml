@@ -22,6 +22,11 @@
 	$configData = $this->getConfigData();
 	$jsConfig = $this->getJsConfig();
 ?>
+<?php if(Mage::getStoreConfig('infinitescroll2/general/jquery')): ?>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="<?php echo $this->getJsUrl('jquery/jquery.latest.min.js') ?>"><\/script>')</script>
+		<script>jQuery.noConflict();</script>
+<?php endif ?>
 <script>
 	var StrategeryInfiniteScroll = {
 		// TODO: js fallback (use yepnope?)
@@ -33,27 +38,15 @@
 					console.log(e.message);
 				}
 			};
-			var scriptElt = document.createElement("script");
-			scriptElt.type = "text/javascript";
-			// Opera has readyState too, but does not behave in a consistent way
-			if (scriptElt.readyState && scriptElt.onload !== null) {
-				// IE only (onload===undefined) not Opera (onload===null)
-				scriptElt.onreadystatechange = function() {
-					if ( scriptElt.readyState === "loaded" || scriptElt.readyState === "complete" ) {
-						// Avoid memory leaks (and duplicate call to callback) in IE
-						scriptElt.onreadystatechange = null;
-						safelistener();
-					}
-				};
-			} else {
-				// other browsers (DOM Level 0)
-				scriptElt.onload = safelistener;
-			}
-			scriptElt.src = url;
-			document.getElementsByTagName("head")[0].appendChild(scriptElt);
+
+			jQuery.ajax({
+				url: url,
+				dataType: "script",
+				success: safelistener
+				// ,error: errorCallback
+			});
 		},
 		init: function(){
-			jQuery.noConflict();
 			StrategeryInfiniteScroll.loadScript("<?php echo $this->getJsUrl('jquery/infinitescroll2/jquery.infinitescroll.js') ?>", function(){
 				StrategeryInfiniteScroll.loadScript("<?php echo $this->getJsUrl('jquery/infinitescroll2/behaviors/infinitescroll-magento.js') ?>", function(){
 					jQuery(function($) {
@@ -71,23 +64,8 @@
 					});
 				});
 			});
-
 		}
 	};
-	if (typeof jQuery == 'undefined') {
-		// try loading jQuery from the CDN first
-		StrategeryInfiniteScroll.loadScript("//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", function(){
-			// use local jQuery fallback
-			if (typeof jQuery == 'undefined') {
-				StrategeryInfiniteScroll.loadScript("<?php echo $this->getJsUrl('jquery/jquery.latest.min.js') ?>", function(){
-					StrategeryInfiniteScroll.init();
-				});
-			}else {
-				StrategeryInfiniteScroll.init();
-			}
-		});
-	} else {
-		StrategeryInfiniteScroll.init();
-	}
+	StrategeryInfiniteScroll.init();
 </script>
 <?php endif ?>
