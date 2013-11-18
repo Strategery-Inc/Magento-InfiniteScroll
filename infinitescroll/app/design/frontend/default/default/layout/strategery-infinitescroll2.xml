@@ -58,11 +58,11 @@
                 </action>
             </block>
         </reference>
-        <reference name="product_list_toolbar">
-            <action method="setTemplate" ifconfig="infinitescroll2/design/hide_toolbar">
-                <template>strategery/infinitescroll2/toolbar.phtml</template>
-            </action>
-        </reference>
+        <!--<reference name="product_list_toolbar">-->
+            <!--<action method="setTemplate" ifconfig="infinitescroll2/design/hide_toolbar">-->
+                <!--<template>strategery/infinitescroll2/toolbar.phtml</template>-->
+            <!--</action>-->
+        <!--</reference>-->
     </infinitescroll2>
 
 </layout>

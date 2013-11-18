@@ -24,6 +24,7 @@
 ?>
 <script>
 	var StrategeryInfiniteScroll = {
+		// TODO: js fallback (use yepnope?)
 		loadScript : function(url, callback) {
 			var safelistener = function(){
 				try {
@@ -61,6 +62,12 @@
 							},
 							<?php echo Mage::getStoreConfig('infinitescroll2/callbacks/processed_callback')?>
 						);
+						<?php if(Mage::getStoreConfig('infinitescroll2/design/hide_toolbar')): ?>
+						$('<?php echo Mage::getStoreConfig('infinitescroll2/selectors/toolbar') ?>').hide();
+						<?php endif ?>
+						<?php if(Mage::getStoreConfig('infinitescroll2/design/hide_pagination')): ?>
+						$('<?php echo Mage::getStoreConfig('infinitescroll2/selectors/pagination') ?>').hide();
+						<?php endif ?>
 					});
 				});
 			});

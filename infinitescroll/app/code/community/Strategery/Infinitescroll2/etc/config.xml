@@ -138,12 +138,15 @@
                 <next>div.pages a.next:first</next>
                 <items>ul.products-grid</items>
                 <loading>div.category-products</loading>
+                <toolbar>.toolbar</toolbar>
+                <pagination>.pager</pagination>
             </selectors>
             <design>
                 <loading_img>http://www.infinite-scroll.com/loading.gif</loading_img>
                 <loading_text><![CDATA[<em>Loading the next set of posts...</em>]]></loading_text>
                 <done_text><![CDATA[<em>Congratulations, you've reached the end of the internet.</em>]]></done_text>
-				<hide_toolbar>1</hide_toolbar>
+                <hide_toolbar>1</hide_toolbar>
+                <hide_pagination>1</hide_pagination>
                 <animate>0</animate>
                 <local_mode>0</local_mode>
                 <extra_scroll_px>150</extra_scroll_px>
