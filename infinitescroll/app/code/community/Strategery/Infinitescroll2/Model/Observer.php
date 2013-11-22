@@ -28,13 +28,13 @@ class Strategery_Infinitescroll2_Model_Observer
 	{
 		/* @var $helper Strategery_Infinitescroll2_Helper_Data */
 		$helper = Mage::helper('infinitescroll2');
-	    if($helper->isEnabledInCurrentPage())
+	    if($helper->isEnabledInCurrentPage() && $helper->isMemoryActive())
 	    {
 		    // reset:
 		    $this->_hardReset();
 			/** @var Mage_Catalog_Model_Category $category */
 			$category = Mage::registry('current_category');
-		    if($category && $helper->isMemoryActive())
+		    if($category )
 		    {
 				// $cacheName = str_replace('/','_',Mage::app()->getRequest()->getRequestString());
 				$cacheName = $category->getId();
@@ -107,10 +107,10 @@ class Strategery_Infinitescroll2_Model_Observer
         // check general and instance enable:
 		/* @var $helper Strategery_Infinitescroll2_Helper_Data */
 		$helper = Mage::helper('infinitescroll2');
-        if($helper->isEnabledInCurrentPage())
+        if($helper->isEnabledInCurrentPage() && $helper->isMemoryActive())
         {
 			$category = Mage::registry('current_category');
-		    if($category && $helper->isMemoryActive() )
+		    if($category )
 		    {
 				$event = $observer->getEvent();
 				/** @var Mage_Catalog_Model_Resource_Product_Collection $collection */

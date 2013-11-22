@@ -145,6 +145,7 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 	public function initMemory()
 	{
 		$result = false;
+		// TODO: what is this? an if for setData ??
 		if($this->getSession()->setData('infiniteScroll',array())) {
 			$result=true;
 		}
@@ -153,20 +154,20 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 	
 	public function saveMemory($pageNumber,$page=false)
 	{
-		$data = $this->getSession()->getData('infiniteScroll');
+		$data = $this->_getMemoryData();
 		if($page!=false && $this->isMemoryEnableForEachPage()) {
 			$data[$page] = $pageNumber;
 		}
 		else {
 			$data['generic']=$pageNumber;
 		}
-		$this->getSession()->setData('infiniteScroll',$data);
+		$this->_setMemoryData($data);
 	}
 	
 	public function loadMemory($page=false)
 	{
 		$result = false;
-		$data=$this->getSession()->getData('infiniteScroll');
+		$data = $this->_getMemoryData();
 		if($page!=false && $this->isMemoryEnableForEachPage()) {
 			$result = $data[$page];
 		}
@@ -174,6 +175,16 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 			$result = $data['generic'];
 		}
 		return $result;
+	}
+
+	protected function _getMemoryData()
+	{
+		return $this->getSession()->getData('infiniteScroll');
+	}
+
+	protected function _setMemoryData($data)
+	{
+		return $this->getSession()->setData('infiniteScroll', $data);
 	}
 
     public function isCacheEnabled()
@@ -192,7 +203,7 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
             $result = '1';
         }
         catch (Exception $e) {
-            $this->_getSession()->addError($e->getMessage());
+            $this->getSession()->addError($e->getMessage());
         }
         return $result;
     }
