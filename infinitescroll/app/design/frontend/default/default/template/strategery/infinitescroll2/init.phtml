@@ -28,6 +28,30 @@
 		<script>jQuery.noConflict();</script>
 <?php endif ?>
 <script>
+	<?php // use: jQueryWaiter.execute(function(){ // safe jQuery code here });  ?>
+	var jQueryWaiter = function () {
+		var functions = [];
+		var timer = function() {
+			if (window.jQuery ) {
+				while (functions.length) {
+					functions.shift()(window.jQuery);
+				}
+			} else {
+				window.setTimeout(timer, 250);
+			}
+		};
+		timer();
+		return {
+			execute: function(onJQueryReady) {
+				if (window.jQuery) {
+					onJQueryReady(window.jQuery);
+				} else {
+					functions.push(onJQueryReady);
+				}
+			}
+		};
+	}();
+
 	var StrategeryInfiniteScroll = {
 		// TODO: js fallback (use yepnope?)
 		loadScript : function(url, callback) {
@@ -66,6 +90,9 @@
 			});
 		}
 	};
-	StrategeryInfiniteScroll.init();
+	<?php // this will prevent executing the infinite scroll before jQuery is loaded even when jQuery is loaded after this code ?>
+	jQueryWaiter.execute(function(){
+		StrategeryInfiniteScroll.init();
+	});
 </script>
 <?php endif ?>
