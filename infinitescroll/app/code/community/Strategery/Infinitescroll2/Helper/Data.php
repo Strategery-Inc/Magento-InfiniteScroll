@@ -106,7 +106,8 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 	
 	public function isMemoryActive()
 	{
-		return $this->getConfigData('memory/enabled');
+		return false;	// disable, we are working on a better implementation for this
+		// return $this->getConfigData('memory/enabled');
 	}
 	
 	public function isScrollCall()
