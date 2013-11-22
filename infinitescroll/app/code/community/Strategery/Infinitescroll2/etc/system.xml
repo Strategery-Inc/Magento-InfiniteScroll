@@ -65,6 +65,16 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </debug>
+                        <jquery>
+                            <label>Include jQuery</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Choose 'Yes' if you want us to load jQuery for you (e.g. if your theme doesn't include jQuery)</comment>
+                        </jquery>
                     </fields>
                 </general>
                 <instances translate="label">
@@ -227,6 +237,22 @@
                             <show_in_store>1</show_in_store>
                             <comment>Selector for loading message and bar.</comment>
                         </loading>
+                        <toolbar>
+                            <label>Toolbar</label>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Selector for the toolbar (normally pagination, sort-by and display type are inside here)</comment>
+                        </toolbar>
+                        <pagination>
+                            <label>Pagination</label>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Selector for pagination</comment>
+                        </pagination>
                     </fields>
                 </selectors>
                 <design translate="label">
@@ -268,38 +294,52 @@
                             <show_in_store>1</show_in_store>
                             <comment>Automatically scroll the page when new content loads.</comment>
                         </animate>
+                        <extra_scroll_px>
+                            <label>Extra Scroll (px)</label>
+                            <validate>validate-digits</validate>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Number of pixels the page will scroll in addition to the height of the loaded DIV. Animate must be 'yes' in order for this to take effect.</comment>
+                            <depends>
+                                <animate>1</animate>
+                            </depends>
+                        </extra_scroll_px>
                         <hide_toolbar>
                             <label>Hide Toolbar</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>4</sort_order>
+                            <sort_order>6</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
+                            <comment>Make sure you have the right css selector for the toolbar</comment>
                         </hide_toolbar>
+                        <hide_pagination>
+                            <label>Hide Pagination</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Make sure you have the right css selector for the pagination</comment>
+                        </hide_pagination>
                         <local_mode>
                             <label>Local Mode</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>5</sort_order>
+                            <sort_order>7</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <comment>Instead of watching the entire window scrolling, watch only the element this plugin was called on (set in Selectors->Content).</comment>
                         </local_mode>
-                        <extra_scroll_px>
-                            <label>Extra Scroll (px)</label>
-                            <validate>validate-digits</validate>
-                            <sort_order>6</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>Number of pixels the page will scroll in addition to the height of the loaded DIV. Animate must be 'yes' in order for this to take effect.</comment>
-                        </extra_scroll_px>
                         <buffer_px>
                             <label>Buffer (px)</label>
                             <validate>validate-digits</validate>
-                            <sort_order>7</sort_order>
+                            <sort_order>8</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>

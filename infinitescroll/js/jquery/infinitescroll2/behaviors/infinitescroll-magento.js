@@ -170,7 +170,7 @@
             if (opts.state.isDestroyed) {
                 this._debug('Instance is destroyed');
                 return false;
-            };
+            }
 
             // we dont want to fire the ajax multiple times
             opts.state.isDuringAjax = true;

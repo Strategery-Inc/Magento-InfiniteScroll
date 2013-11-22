@@ -1,0 +1,98 @@
+<?php
+/** @var $this Strategery_Infinitescroll2_Block_Init */
+/**
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll2
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ *
+ * @author     Enrique Piatti (contacto@enriquepiatti.com)
+ */
+?>
+<?php if($this->isEnabled()): ?>
+<?php
+	$configData = $this->getConfigData();
+	$jsConfig = $this->getJsConfig();
+?>
+<?php if(Mage::getStoreConfig('infinitescroll2/general/jquery')): ?>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="<?php echo $this->getJsUrl('jquery/jquery.latest.min.js') ?>"><\/script>')</script>
+		<script>jQuery.noConflict();</script>
+<?php endif ?>
+<script>
+	<?php // use: jQueryWaiter.execute(function(){ // safe jQuery code here });  ?>
+	var jQueryWaiter = function () {
+		var functions = [];
+		var timer = function() {
+			if (window.jQuery ) {
+				while (functions.length) {
+					functions.shift()(window.jQuery);
+				}
+			} else {
+				window.setTimeout(timer, 100);
+			}
+		};
+		timer();
+		return {
+			execute: function(onJQueryReady) {
+				if (window.jQuery) {
+					onJQueryReady(window.jQuery);
+				} else {
+					functions.push(onJQueryReady);
+				}
+			}
+		};
+	}();
+
+	var StrategeryInfiniteScroll = {
+		// TODO: js fallback (use yepnope?)
+		loadScript : function(url, callback) {
+			var safelistener = function(){
+				try {
+					callback();
+				} catch(e) {
+					console.log(e.message);
+				}
+			};
+
+			jQuery.ajax({
+				url: url,
+				dataType: "script",
+				success: safelistener
+				// ,error: errorCallback
+			});
+		},
+		init: function(){
+			StrategeryInfiniteScroll.loadScript("<?php echo $this->getJsUrl('jquery/infinitescroll2/jquery.infinitescroll.js') ?>", function(){
+				StrategeryInfiniteScroll.loadScript("<?php echo $this->getJsUrl('jquery/infinitescroll2/behaviors/infinitescroll-magento.js') ?>", function(){
+					jQuery(function($) {
+						$('<?php echo $configData ?>').infinitescroll({
+								<?php echo $jsConfig; ?>
+							},
+							<?php echo Mage::getStoreConfig('infinitescroll2/callbacks/processed_callback')?>
+						);
+						<?php if(Mage::getStoreConfig('infinitescroll2/design/hide_toolbar')): ?>
+						$('<?php echo Mage::getStoreConfig('infinitescroll2/selectors/toolbar') ?>').hide();
+						<?php endif ?>
+						<?php if(Mage::getStoreConfig('infinitescroll2/design/hide_pagination')): ?>
+						$('<?php echo Mage::getStoreConfig('infinitescroll2/selectors/pagination') ?>').hide();
+						<?php endif ?>
+					});
+				});
+			});
+		}
+	};
+	<?php // this will prevent executing the infinite scroll before jQuery is loaded even when jQuery is loaded after this code ?>
+	jQueryWaiter.execute(function(){
+		StrategeryInfiniteScroll.init();
+	});
+</script>
+<?php endif ?>
