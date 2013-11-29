@@ -46,5 +46,43 @@ class Strategery_Infinitescroll2_Block_Init extends Mage_Core_Block_Template
 	{
 		return Mage::helper('infinitescroll2')->isEnabledInCurrentPage();
 	}
-	
+
+	public function getLoaderImage()
+	{
+		$url = Mage::helper('infinitescroll2')->getConfigData('design/loading_img');
+		return strpos($url, 'http') === 0 ? $url : $this->getSkinUrl($url);
+	}
+
+	public function getProductListMode()
+	{
+		// user mode
+		if ($currentMode = $this->getRequest()->getParam('mode')) {
+			switch($currentMode){
+				case 'grid':
+					$productListMode = 'grid';
+					break;
+				case 'list':
+					$productListMode = 'list';
+					break;
+				default:
+					$productListMode = 'grid';
+			}
+		}
+		else {
+			$defaultMode = Mage::getStoreConfig('catalog/frontend/list_mode');
+			switch($defaultMode){
+				case 'grid-list':
+					$productListMode = 'grid';
+					break;
+				case 'list-grid':
+					$productListMode = 'list';
+					break;
+				default:
+					$productListMode = 'grid';
+			}
+		}
+
+		return $productListMode;
+	}
+
 }
