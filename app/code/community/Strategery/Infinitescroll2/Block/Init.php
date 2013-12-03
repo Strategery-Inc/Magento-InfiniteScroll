@@ -30,18 +30,6 @@ class Strategery_Infinitescroll2_Block_Init extends Mage_Core_Block_Template
 		return $configData;
 	}
 
-	public function getJsConfig()
-	{
-		$helper = Mage::helper('infinitescroll2');
-		$cache = Mage::getSingleton('core/cache');
-		$jsConfig = $cache->load("infinitescroll2_jsConfig");
-		if ( ! $jsConfig) {
-			$jsConfig = $helper->getJsConfig();
-			$cache->save($jsConfig, "infinitescroll2_jsConfig", array("infinitescroll2"));
-		}
-		return $jsConfig;
-	}
-
 	public function isEnabled()
 	{
 		return Mage::helper('infinitescroll2')->isEnabledInCurrentPage();
