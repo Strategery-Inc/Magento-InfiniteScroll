@@ -36,9 +36,9 @@
         <update handle="infinitescroll2"/>
     </catalogsearch_result_index>
 
-    <catalogsearch_advanced_index>
+    <catalogsearch_advanced_result>
         <update handle="infinitescroll2"/>
-    </catalogsearch_advanced_index>
+    </catalogsearch_advanced_result>
 
 
     <infinitescroll2>
