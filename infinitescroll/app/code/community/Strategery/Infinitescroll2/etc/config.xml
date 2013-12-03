@@ -81,7 +81,6 @@
         <infinitescroll2>
             <general>
                 <enabled>1</enabled>
-                <debug>0</debug>
                 <jquery>1</jquery>
             </general>
             <instances>
