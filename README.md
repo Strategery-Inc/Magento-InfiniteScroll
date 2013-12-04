@@ -1,4 +1,4 @@
-Strategery InfiniteScroll 2
+Strategery InfiniteScroll
 =====================
 This extension is for when the user reaches the end of the current product list, the next page is loaded automatically by AJAX after the end of the list. Easy to install and configure, this module works 100% out of the box with Magento's default theme, and also gives to you the posibility to configurate the custom selectors of your custom theme. Now you can get a more friendly UI by helping the user to save clicks and time.
 
@@ -10,7 +10,6 @@ This extension is for when the user reaches the end of the current product list,
 
 ### Configuration
 If you have a different theme other than the default, you will need to copy the default theme files to your custom theme folder and configure the plugin by going to System / Configuration / Catalog / Infinite Scroll.
-NOTE: If you have another JS module that apply some behave to the product list remember to use our callback function to assign the JS behave to the products loaded by InfiniteScroll.
 
 ### Demo
 <table>
@@ -42,14 +41,20 @@ NOTE: If you have another JS module that apply some behave to the product list r
 ### Useful Links
 <table>
 <tr>
-  <td>Repository</td><td>https://github.com/paulirish/infinite-scroll</td>
-</tr>
-<tr>
-  <td>Webpage</td><td>http://www.infinite-scroll.com</td>
+  <td>Repository</td><td>https://github.com/webcreate/infinite-ajax-scroll</td>
 </tr>
 </table>
 
 ### Release Notes
+##### v3.0.0
+- Changed infinite scroll library (now using: https://github.com/webcreate/infinite-ajax-scroll)
+- Improved memory system
+- Better jQuery integration
+- Added semiautomatic mode (load more button)
+- Added support for list mode
+- Added optional extra js for advanced customizations (callbacks, extra params, etc)
+- Multiple bugfixes
+
 ##### v2.1.5/2.1.6
 - New features: new options in system / configuration for different instances.
 - Fixes: callback function as required option, cache fixed, category event fixed.
