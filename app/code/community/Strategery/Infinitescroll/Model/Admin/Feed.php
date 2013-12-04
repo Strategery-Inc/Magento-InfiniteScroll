@@ -1,6 +1,6 @@
 <?php
 /**
- * InfiniteScroll2 - Magento Integration
+ * InfiniteScroll - Magento Integration
  *
  * NOTICE OF LICENSE
  *
@@ -9,7 +9,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  *
  * @category   Strategery
- * @package    Strategery_Infinitescroll2
+ * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
  *
@@ -20,7 +20,7 @@
  * @author     Enrique Piatti (contacto@enriquepiatti.com)
  * @link       http://www.dwdesigner.com/
  */
-class Strategery_Infinitescroll2_Model_Admin_Feed extends Mage_AdminNotification_Model_Feed
+class Strategery_Infinitescroll_Model_Admin_Feed extends Mage_AdminNotification_Model_Feed
 {
 
 	const FEED_URL = 'usestrategery.com/infinite_scroll/feed/';
@@ -39,12 +39,12 @@ class Strategery_Infinitescroll2_Model_Admin_Feed extends Mage_AdminNotification
 
 	public function getLastUpdate()
 	{
-		return Mage::app()->loadCache('infinitescroll2_notifications_lastcheck');
+		return Mage::app()->loadCache('infinitescroll_notifications_lastcheck');
 	}
 
 	public function setLastUpdate()
 	{
-		Mage::app()->saveCache(time(), 'infinitescroll2_notifications_lastcheck');
+		Mage::app()->saveCache(time(), 'infinitescroll_notifications_lastcheck');
 		return $this;
 	}
 

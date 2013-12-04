@@ -1,6 +1,6 @@
 <?php
 /**
- * InfiniteScroll2 - Magento Integration
+ * InfiniteScroll - Magento Integration
  *
  * NOTICE OF LICENSE
  *
@@ -9,7 +9,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  *
  * @category   Strategery
- * @package    Strategery_Infinitescroll2
+ * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
  * 
@@ -20,7 +20,7 @@
  * @author     Damian A. Pastorini (admin@dwdesigner.com)
  * @link       http://www.dwdesigner.com/
  */
-class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
+class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract
 {
 
     protected $_optionsMap;
@@ -28,7 +28,7 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getConfigData($node) 
 	{
-        return Mage::getStoreConfig('infinitescroll2/' . $node);
+        return Mage::getStoreConfig('infinitescroll/' . $node);
     }
 
 	public function isMemoryActive()
@@ -59,7 +59,7 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 
 	public function isEnabled()
 	{
-		return Mage::getStoreConfig('infinitescroll2/general/enabled');
+		return Mage::getStoreConfig('infinitescroll/general/enabled');
 	}
 
 
@@ -88,13 +88,13 @@ class Strategery_Infinitescroll2_Helper_Data extends Mage_Core_Helper_Abstract
 	public function isEnabledInCurrentPage()
 	{
 		$pageType = $this->getCurrentPageType();
-		return $this->isEnabled() && Mage::getStoreConfig('infinitescroll2/instances/'.$pageType);
+		return $this->isEnabled() && Mage::getStoreConfig('infinitescroll/instances/'.$pageType);
 	}
 
 //	public function getSizeLimitForCurrentPage()
 //	{
 //		$pageType = $this->getCurrentPageType();
-//		return Mage::getStoreConfig('infinitescroll2/instances/size_'.$pageType.'');
+//		return Mage::getStoreConfig('infinitescroll/instances/size_'.$pageType.'');
 //	}
 
 }

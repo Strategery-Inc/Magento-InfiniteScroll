@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * InfiniteScroll2 - Magento Integration
+ * InfiniteScroll - Magento Integration
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  *
  * @category   Strategery
- * @package    Strategery_Infinitescroll2	   
+ * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
  * 
@@ -24,13 +24,13 @@
  -->
 <config>
     <tabs>
-        <strategery translate="label" module="infinitescroll2">
+        <strategery translate="label" module="infinitescroll">
             <label>Strategery Inc. Extensions</label>
             <sort_order>201</sort_order>
         </strategery>
     </tabs>
     <sections>
-        <infinitescroll2 translate="label" module="infinitescroll2">
+        <infinitescroll translate="label" module="infinitescroll">
             <label>Infinite Scroll 2</label>
             <tab>strategery</tab>
             <frontend_type>text</frontend_type>
@@ -333,6 +333,6 @@
                     </fields>
                 </advanced>
             </groups>
-        </infinitescroll2>
+        </infinitescroll>
     </sections>
 </config>

@@ -1,6 +1,6 @@
 <?php
 /**
- * InfiniteScroll2 - Magento Integration
+ * InfiniteScroll - Magento Integration
  *
  * NOTICE OF LICENSE
  *
@@ -9,35 +9,35 @@
  * http://opensource.org/licenses/afl-3.0.php
  *
  * @category   Strategery
- * @package    Strategery_Infinitescroll2
+ * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
  *
  * @author Enrique Piatti
  */ 
-class Strategery_Infinitescroll2_Block_Init extends Mage_Core_Block_Template
+class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 {
 
 	public function getConfigData()
 	{
-		$helper = Mage::helper('infinitescroll2');
+		$helper = Mage::helper('infinitescroll');
 		$cache = Mage::getSingleton('core/cache');
-		$configData = $cache->load("infinitescroll2_configData");
+		$configData = $cache->load("infinitescroll_configData");
 		if ( ! $configData) {
 			$configData = $helper->getConfigData('selectors/content');
-			$cache->save($configData, "infinitescroll2_configData", array("infinitescroll2"));
+			$cache->save($configData, "infinitescroll_configData", array("infinitescroll"));
 		}
 		return $configData;
 	}
 
 	public function isEnabled()
 	{
-		return Mage::helper('infinitescroll2')->isEnabledInCurrentPage();
+		return Mage::helper('infinitescroll')->isEnabledInCurrentPage();
 	}
 
 	public function getLoaderImage()
 	{
-		$url = Mage::helper('infinitescroll2')->getConfigData('design/loading_img');
+		$url = Mage::helper('infinitescroll')->getConfigData('design/loading_img');
 		return strpos($url, 'http') === 0 ? $url : $this->getSkinUrl($url);
 	}
 

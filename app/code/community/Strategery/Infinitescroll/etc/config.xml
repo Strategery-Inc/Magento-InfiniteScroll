@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * InfiniteScroll2 - Magento Integration
+ * InfiniteScroll - Magento Integration
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  *
  * @category   Strategery
- * @package    Strategery_Infinitescroll2	   
+ * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
  * 
@@ -24,33 +24,33 @@
 -->
 <config>
     <modules>
-        <Strategery_Infinitescroll2>
-            <version>2.5.0</version>
-        </Strategery_Infinitescroll2>
+        <Strategery_Infinitescroll>
+            <version>3.0.0</version>
+        </Strategery_Infinitescroll>
     </modules>
     <global>
         <helpers>
-            <infinitescroll2>
-                <class>Strategery_Infinitescroll2_Helper</class>
-            </infinitescroll2>
+            <infinitescroll>
+                <class>Strategery_Infinitescroll_Helper</class>
+            </infinitescroll>
         </helpers>
         <models>
-            <infinitescroll2>
-                <class>Strategery_Infinitescroll2_Model</class>
-            </infinitescroll2>
+            <infinitescroll>
+                <class>Strategery_Infinitescroll_Model</class>
+            </infinitescroll>
         </models>
         <blocks>
-            <infinitescroll2>
-                <class>Strategery_Infinitescroll2_Block</class>
-            </infinitescroll2>
+            <infinitescroll>
+                <class>Strategery_Infinitescroll_Block</class>
+            </infinitescroll>
         </blocks>        
     </global>
     <frontend>
         <layout>
             <updates>
-                <infinitescroll2>
-                    <file>strategery-infinitescroll2.xml</file>
-                </infinitescroll2>
+                <infinitescroll>
+                    <file>strategery-infinitescroll.xml</file>
+                </infinitescroll>
             </updates>
         </layout>
     </frontend>
@@ -59,7 +59,7 @@
             <controller_action_predispatch>
                 <observers>
                     <tmcore>
-                        <class>infinitescroll2/observer</class>
+                        <class>infinitescroll/observer</class>
                         <method>controllerActionPredispatch</method>
                     </tmcore>
                 </observers>
@@ -67,7 +67,7 @@
         </events>
     </adminhtml>
     <default>
-        <infinitescroll2>
+        <infinitescroll>
             <general>
                 <enabled>1</enabled>
                 <jquery>1</jquery>
@@ -104,8 +104,8 @@
                 <enabled>1</enabled>
             </memory>
             <advanced>
-                <ias_config>js/infinitescroll2/ias_config.js</ias_config>
+                <ias_config>js/infinitescroll/ias_config.js</ias_config>
             </advanced>
-        </infinitescroll2>
+        </infinitescroll>
     </default>
 </config>
