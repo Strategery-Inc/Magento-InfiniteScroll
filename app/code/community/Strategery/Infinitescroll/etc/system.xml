@@ -31,7 +31,7 @@
     </tabs>
     <sections>
         <infinitescroll translate="label" module="infinitescroll">
-            <label>Infinite Scroll 2</label>
+            <label>Infinite Scroll</label>
             <tab>strategery</tab>
             <frontend_type>text</frontend_type>
             <sort_order>120</sort_order>
