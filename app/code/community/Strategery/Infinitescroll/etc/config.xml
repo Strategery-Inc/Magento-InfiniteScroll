@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ * 
+ * @author     Gabriel Somoza (me@gabrielsomoza.com)
+ * @link       http://gabrielsomoza.com/
+ * 
+ * Update 2.0.0
+ * @author     Damian A. Pastorini (admin@dwdesigner.com)
+ * @link       http://www.dwdesigner.com/
+ */
+-->
+<config>
+    <modules>
+        <Strategery_Infinitescroll>
+            <version>3.0.0</version>
+        </Strategery_Infinitescroll>
+    </modules>
+    <global>
+        <helpers>
+            <infinitescroll>
+                <class>Strategery_Infinitescroll_Helper</class>
+            </infinitescroll>
+        </helpers>
+        <models>
+            <infinitescroll>
+                <class>Strategery_Infinitescroll_Model</class>
+            </infinitescroll>
+        </models>
+        <blocks>
+            <infinitescroll>
+                <class>Strategery_Infinitescroll_Block</class>
+            </infinitescroll>
+        </blocks>        
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <infinitescroll>
+                    <file>strategery-infinitescroll.xml</file>
+                </infinitescroll>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <tmcore>
+                        <class>infinitescroll/observer</class>
+                        <method>controllerActionPredispatch</method>
+                    </tmcore>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </adminhtml>
+    <default>
+        <infinitescroll>
+            <general>
+                <enabled>1</enabled>
+                <jquery>1</jquery>
+            </general>
+            <instances>
+                <grid>1</grid>
+                <layer>1</layer>
+                <search>1</search>
+                <advanced>1</advanced>
+            </instances>
+            <selectors>
+                <content>div.category-products</content>
+                <next>a.next</next>
+                <items_grid>ul.products-grid</items_grid>
+                <items_list>.products-list</items_list>
+                <loading>div.category-products</loading>
+                <toolbar>.toolbar</toolbar>
+                <pagination>.toolbar .pager</pagination>
+            </selectors>
+            <design>
+                <loading_img>http://www.infinite-scroll.com/loading.gif</loading_img>
+                <loading_text><![CDATA[<em>Loading the next set of posts...</em>]]></loading_text>
+                <done_text><![CDATA[<em>Congratulations, you've reached the end of the internet.</em>]]></done_text>
+                <hide_toolbar>0</hide_toolbar>
+                <hide_pagination>1</hide_pagination>
+                <animate>0</animate>
+                <local_mode>0</local_mode>
+                <extra_scroll_px>150</extra_scroll_px>
+                <buffer_px>150</buffer_px>
+                <load_more_text>Load more items</load_more_text>
+                <load_more_threshold>5</load_more_threshold>
+            </design>
+            <memory>
+                <enabled>1</enabled>
+            </memory>
+            <advanced>
+                <ias_config>js/infinitescroll/ias_config.js</ias_config>
+            </advanced>
+        </infinitescroll>
+    </default>
+</config>

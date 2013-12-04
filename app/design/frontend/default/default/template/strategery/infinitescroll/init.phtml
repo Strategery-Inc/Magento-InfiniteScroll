@@ -1,0 +1,121 @@
+<?php
+/** @var $this Strategery_Infinitescroll_Block_Init */
+/**
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ *
+ * @author     Enrique Piatti (contacto@enriquepiatti.com)
+ */
+?>
+<?php if($this->isEnabled()): ?>
+<?php
+	$configData = $this->getConfigData();
+	$helper = Mage::helper('infinitescroll');
+	$productListMode = $this->getProductListMode();
+?>
+<?php if(Mage::getStoreConfig('infinitescroll/general/jquery')): ?>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="<?php echo $this->getJsUrl('jquery/jquery.latest.min.js') ?>"><\/script>')</script>
+		<script>jQuery.noConflict();</script>
+<?php endif ?>
+<?php if($iasConfig = $helper->getConfigData('advanced/ias_config')) :?>
+		<script src="<?php echo $this->getSkinUrl($iasConfig) ?>"></script>
+<?php endif ?>
+<script>
+
+	windowLoadedFlag = false;
+	window.onload = function () {
+		windowLoadedFlag = true;
+	};
+
+	<?php // use: jQueryWaiter.execute(function(){ // safe jQuery code here });  ?>
+	var jQueryWaiter = function () {
+		var functions = [];
+		var timer = function() {
+			if (window.jQuery ) {
+				while (functions.length) {
+					functions.shift()(window.jQuery);
+				}
+			} else {
+				window.setTimeout(timer, 100);
+			}
+		};
+		timer();
+		return {
+			execute: function(onJQueryReady) {
+				if (window.jQuery) {
+					onJQueryReady(window.jQuery);
+				} else {
+					functions.push(onJQueryReady);
+				}
+			}
+		};
+	}();
+
+	var StrategeryInfiniteScroll = {
+		loadScript : function(url, callback) {
+			var safelistener = function(){
+				try {
+					callback();
+				} catch(e) {
+					console.log(e.message);
+				}
+			};
+
+			jQuery.ajax({
+				url: url,
+				dataType: "script",
+				success: safelistener
+				// ,error: errorCallback
+			});
+		},
+		init: function(){
+			StrategeryInfiniteScroll.loadScript("<?php echo $this->getJsUrl('jquery/infinitescroll/jquery-ias.min.js') ?>", function(){
+					jQuery(function($) {
+
+						var config = {
+							container : '<?php echo $helper->getConfigData('selectors/content') ?>',
+							item: '<?php echo $productListMode == 'grid' ? $helper->getConfigData('selectors/items_grid') : $helper->getConfigData('selectors/items_list') ?>',
+							pagination: '<?php echo $helper->getConfigData('selectors/pagination') ?>',
+							next: '<?php echo $helper->getConfigData('selectors/next') ?>',
+							triggerPageThreshold: <?php echo (int) $helper->getConfigData('design/load_more_threshold') ?>,
+							trigger: '<?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/load_more_text'))) ?>',
+							history: <?php echo ($helper->isMemoryActive()) ? 'true' : 'false'; ?>,
+							noneleft: '<?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/done_text'))) ?>',
+							loader: '<img src="<?php echo $this->getLoaderImage() ?>" /> <?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/loading_text'))); ?>',
+							scrollContainer: <?php if($helper->getConfigData('design/local_mode')): ?>$('<?php echo $helper->getConfigData('selectors/content') ?>')<?php else: ?>$(window)<?php endif ?>,
+							thresholdMargin: -<?php echo (int) $helper->getConfigData('design/buffer_px') ?>
+						};
+
+						if (window.ias_config){
+							$.extend(config, window.ias_config);
+						}
+
+						$.ias(config);
+
+						$('<?php echo Mage::getStoreConfig('infinitescroll/selectors/toolbar') ?>').<?php echo $helper->getConfigData('design/hide_toolbar') ? 'hide' : 'show' ?>();
+
+						if(windowLoadedFlag){
+							$(window).load();
+						}
+
+				});
+			});
+		}
+	};
+	<?php // this will prevent executing the infinite scroll before jQuery is loaded even when jQuery is loaded after this code ?>
+	jQueryWaiter.execute(function(){
+		StrategeryInfiniteScroll.init();
+	});
+</script>
+<?php endif ?>
