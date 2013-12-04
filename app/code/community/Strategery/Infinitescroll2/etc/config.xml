@@ -55,27 +55,16 @@
         </layout>
     </frontend>
     <adminhtml>
-        <!--Not using adminhtml.xml here for compatibility with Magento 1.3-->
-        <acl>
-            <resources>
-                <admin>
-                    <children>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <infinitescroll2 translate="title" module="infinitescroll2">
-                                            <title>Infinite Scroll</title>
-                                            <sort_order>50</sort_order>
-                                        </infinitescroll2>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                    </children>
-                </admin>
-            </resources>
-        </acl>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <tmcore>
+                        <class>infinitescroll2/observer</class>
+                        <method>controllerActionPredispatch</method>
+                    </tmcore>
+                </observers>
+            </controller_action_predispatch>
+        </events>
     </adminhtml>
     <default>
         <infinitescroll2>

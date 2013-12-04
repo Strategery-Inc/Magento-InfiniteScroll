@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <infinitescroll2 translate="title" module="infinitescroll2">
+                                        <title>Infinite Scroll</title>
+                                        <sort_order>50</sort_order>
+                                    </infinitescroll2>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
