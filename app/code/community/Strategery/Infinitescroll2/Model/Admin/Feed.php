@@ -23,13 +23,16 @@
 class Strategery_Infinitescroll2_Model_Admin_Feed extends Mage_AdminNotification_Model_Feed
 {
 
-	const FEED_URL = 'usestrategery.com/infinite_scroll/feed';
+	const FEED_URL = 'usestrategery.com/infinite_scroll/feed/';
 
 	public function getFeedUrl()
 	{
 		if (is_null($this->_feedUrl)) {
-			$this->_feedUrl = (Mage::getStoreConfigFlag(self::XML_USE_HTTPS_PATH) ? 'https://' : 'http://')
-				. self::FEED_URL;
+//			$this->_feedUrl = (Mage::getStoreConfigFlag(self::XML_USE_HTTPS_PATH) ? 'https://' : 'http://')
+//				. self::FEED_URL;
+
+			$this->_feedUrl = 'http://'.self::FEED_URL;
+
 		}
 		return $this->_feedUrl;
 	}
