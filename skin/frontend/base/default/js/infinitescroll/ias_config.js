@@ -1,5 +1,11 @@
 window.ias_config = {
     // options from https://github.com/webcreate/infinite-ajax-scroll
+    //documentation no longer available at the above website
+    //availablie functions:
+    //onPageChange
+    //onLoadItems
+    //onRenderComplete
+    //
     // ex. Google Analytics
 //    onPageChange: function(pageNum, pageUrl, scrollOffset) {
 //        // This will track a pageview every time the user scrolls up or down the screen to a different page.
