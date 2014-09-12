@@ -1,0 +1,10 @@
+{
+    "name": "strategery-inc/magento-infinitescroll",
+    "license": "AFL-3.0",
+    "type": "magento-module",
+    "description": "Strategery Magento InfiniteScroll",
+    "homepage": "http://www.magentocommerce.com/magento-connect/strategery-infinitescroll.html",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
