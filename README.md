@@ -44,8 +44,16 @@ If you have a different theme other than the default, you will need to copy the 
   <td>Repository</td><td>https://github.com/webcreate/infinite-ajax-scroll</td>
 </tr>
 </table>
-
+------------------
 ### Release Notes
+##### v3.1.0
+Upgraded to IAS 2.1.3, which includes major stability and bug-fix improvements, as well as some new features.
+
+###### UPGRADE NOTES
+If you're supplying custom configuration through a file (in the "Advanced" tab of the System Config options) please take a look at the new configuration architecture in this file: http://bit.ly/1wurMmX
+
+If you're listening to certain events, please take a look at the new events API: http://infiniteajaxscroll.com/docs/events.html
+
 ##### v3.0.0
 - Changed infinite scroll library (now using: https://github.com/webcreate/infinite-ajax-scroll)
 - Improved memory system
