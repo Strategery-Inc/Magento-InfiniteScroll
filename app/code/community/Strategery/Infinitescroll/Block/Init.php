@@ -11,7 +11,7 @@
  * @category   Strategery
  * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- * @copyright  Copyright (c) 2011 Strategery Inc. (http://usestrategery.com)
+ * @copyright  Copyright (c) 2014 Strategery Inc. (http://usestrategery.com)
  *
  * @author Enrique Piatti
  */ 
