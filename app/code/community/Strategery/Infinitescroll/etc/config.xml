@@ -16,8 +16,7 @@
  * 
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
- * 
- * Update 2.0.0
+ *
  * @author     Damian A. Pastorini (admin@dwdesigner.com)
  * @link       http://www.dwdesigner.com/
  */
@@ -25,7 +24,7 @@
 <config>
     <modules>
         <Strategery_Infinitescroll>
-            <version>3.0.0</version>
+            <version>3.1.0</version>
         </Strategery_Infinitescroll>
     </modules>
     <global>
@@ -70,6 +69,7 @@
         <infinitescroll>
             <general>
                 <enabled>1</enabled>
+                <debug>1</debug>
                 <jquery>1</jquery>
             </general>
             <instances>
@@ -79,16 +79,16 @@
                 <advanced>1</advanced>
             </instances>
             <selectors>
-                <content>div.category-products</content>
-                <next>a.next</next>
-                <items_grid>ul.products-grid</items_grid>
+                <content>.category-products</content>
+                <next>.next</next>
+                <items_grid>.products-grid</items_grid>
                 <items_list>.products-list</items_list>
-                <loading>div.category-products</loading>
+                <loading>.category-products</loading>
                 <toolbar>.toolbar</toolbar>
                 <pagination>.toolbar .pager</pagination>
             </selectors>
             <design>
-                <loading_img>http://www.infinite-scroll.com/loading.gif</loading_img>
+                <loading_img><![CDATA[]]></loading_img>
                 <loading_text><![CDATA[<em>Loading the next set of posts...</em>]]></loading_text>
                 <done_text><![CDATA[<em>Congratulations, you've reached the end of the internet.</em>]]></done_text>
                 <hide_toolbar>0</hide_toolbar>
