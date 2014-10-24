@@ -35,10 +35,16 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 		return Mage::helper('infinitescroll')->isEnabledInCurrentPage();
 	}
 
+	/**
+	 * @return bool|false
+	 */
 	public function getLoaderImage()
 	{
 		$url = Mage::helper('infinitescroll')->getConfigData('design/loading_img');
-		return strpos($url, 'http') === 0 ? $url : $this->getSkinUrl($url);
+		if(!empty($url)) {
+			$url = strpos($url, 'http') === 0 ? $url : $this->getSkinUrl($url);
+		}
+		return empty($url) ? false : $url;
 	}
 
 	public function getProductListMode()
