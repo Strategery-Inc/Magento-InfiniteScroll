@@ -21,7 +21,7 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 	public function getConfigData()
 	{
 		$helper = Mage::helper('infinitescroll');
-		$cache = Mage::getSingleton('core/cache');
+		$cache = Mage::app()->getCache();
 		$configData = $cache->load("infinitescroll_configData");
 		if ( ! $configData) {
 			$configData = $helper->getConfigData('selectors/content');
