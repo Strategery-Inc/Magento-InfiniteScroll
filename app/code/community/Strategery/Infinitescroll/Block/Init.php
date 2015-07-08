@@ -50,7 +50,8 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 	public function getProductListMode()
 	{
 		// user mode
-		if ($currentMode = $this->getRequest()->getParam('mode')) {
+        $currentMode = $this->getRequest()->getParam('mode') ? $this->getRequest()->getParam('mode') : Mage::getSingleton('catalog/session')->getDisplayMode();
+        if ($currentMode) {
 			switch($currentMode){
 				case 'grid':
 					$productListMode = 'grid';
