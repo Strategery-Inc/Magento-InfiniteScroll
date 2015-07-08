@@ -15,7 +15,7 @@ If you have a different theme other than the default, you will need to copy the 
 <table>
 <tr>
 <td>Frontend Demo</td>
-<td>http://demo.usestrategery.com/infinite-scroll/electronics/all-products.html</td>
+<td>http://demo.usestrategery.com/infinite-scroll/infinitescroll.html</td>
 </tr>
 <tr>
 <td>Backend (Admin)</td>
