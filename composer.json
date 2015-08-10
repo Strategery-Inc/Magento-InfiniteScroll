@@ -1,0 +1,18 @@
+{
+  "name": "strategery/infinitescroll",
+  "license": "GPL-3.0",
+  "type": "magento-module",
+  "description": "Magento Cron Scheduler",
+  "homepage": "https://github.com/Strategery-Inc/Magento-InfiniteScroll",
+  "require": {
+    "php": ">=5.3",
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "authors": [
+    {
+      "name": "Gabriel Somoza",
+      "email": "contact@gabrielsomoza.com",
+      "role": "Author/Maintainer"
+    }
+  ]
+}
