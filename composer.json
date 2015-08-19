@@ -2,7 +2,7 @@
   "name": "strategery/infinitescroll",
   "license": "GPL-3.0",
   "type": "magento-module",
-  "description": "Magento Cron Scheduler",
+  "description": "Magento InfiniteScroll: AJAX feature for catalog to load the next set of products.",
   "homepage": "https://github.com/Strategery-Inc/Magento-InfiniteScroll",
   "require": {
     "php": ">=5.3",
