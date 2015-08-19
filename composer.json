@@ -1,6 +1,6 @@
 {
   "name": "strategery/infinitescroll",
-  "license": "GPL-3.0",
+  "license": "AFL-3.0",
   "type": "magento-module",
   "description": "Magento InfiniteScroll: AJAX feature for catalog to load the next set of products.",
   "homepage": "https://github.com/Strategery-Inc/Magento-InfiniteScroll",
