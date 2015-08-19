@@ -2,7 +2,7 @@
   "name": "strategery/infinitescroll",
   "license": "GPL-3.0",
   "type": "magento-module",
-  "description": "Magento Cron Scheduler",
+  "description": "This extension provides functionality to load the next page automatically by AJAX after the end of the product list",
   "homepage": "https://github.com/Strategery-Inc/Magento-InfiniteScroll",
   "require": {
     "php": ">=5.3",
