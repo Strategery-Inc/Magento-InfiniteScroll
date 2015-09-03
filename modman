@@ -1,6 +1,6 @@
-app/etc/modules/*.xml app/etc/modules/
-app/code/community/Strategery/* app/code/community/Strategery/
-app/design/frontend/default/default/layout/*.xml app/design/frontend/base/default/layout/
-app/design/frontend/default/default/template/strategery/* app/design/frontend/base/default/template/strategery/
-skin/frontend/base/default/js/infinitescroll/* skin/frontend/base/default/js/infinitescroll/
-js/jquery/* js/jquery/
+app/etc/modules/*.xml                                                     app/etc/modules
+app/code/community/Strategery/Infinitescroll                              app/code/community/Strategery/Infinitescroll
+app/design/frontend/base/default/layout/*.xml                             app/design/frontend/base/default/layout
+app/design/frontend/base/default/template/strategery/infinitescroll       app/design/frontend/base/default/template/strategery/infinitescroll
+skin/frontend/base/default/js/infinitescroll                              skin/frontend/base/default/js/infinitescroll
+js/jquery                                                                 js/jquery
