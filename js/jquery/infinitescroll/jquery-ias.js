@@ -310,8 +310,14 @@ IASCallbacks.prototype = {
                 container = this.$container;
             }
 
-            // always take the last matching item
-            return $(this.nextSelector, container).last().attr('href');
+            // always take the last matching item + fix to be protocol relative
+            var nexturl = $(this.nextSelector, container).last().attr('href');
+            if (window.location.protocol == 'https:') {
+                nexturl = nexturl.replace('http:', window.location.protocol);
+            } else {
+                nexturl = nexturl.replace('https:', window.location.protocol);
+            }
+            return nexturl;
         };
 
         /**
