@@ -155,6 +155,24 @@
 
 						$('<?php echo Mage::getStoreConfig('infinitescroll/selectors/toolbar') ?>').<?php echo $helper->getConfigData('design/hide_toolbar') ? 'hide' : 'show' ?>();
 
+						// custom fix for url protocol issue in jquery ias library:
+						window.ias.getNextUrl = function(container) {
+							if (!container) {
+								container = window.ias.$container;
+							}
+							// always take the last matching item + fix to be protocol relative
+							var nexturl = $(window.ias.nextSelector, container).last().attr('href');
+							if(typeof nexturl !== "undefined") {
+								if (window.location.protocol == 'https:') {
+									nexturl = nexturl.replace('http:', window.location.protocol);
+								} else {
+									nexturl = nexturl.replace('https:', window.location.protocol);
+								}
+							}
+							return nexturl;
+						};
+						// custom fix for url protocol issue in jquery ias library.
+
 						if(windowLoadedFlag){
 							$(window).load();
 						}
