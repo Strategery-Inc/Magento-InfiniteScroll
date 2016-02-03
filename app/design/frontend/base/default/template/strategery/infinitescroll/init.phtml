@@ -63,7 +63,7 @@
 	}();
 
 	window.SgyIAS = {
-		debug: false,
+		debug: <?php echo $helper->getConfigData('general/debug'); ?>,
 		_log: function(object) {
 			if(this.debug) {
 				console.log(object);
