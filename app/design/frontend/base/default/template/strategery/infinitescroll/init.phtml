@@ -129,27 +129,35 @@
 
 						// debug events
 						window.ias.on('scroll', function(scrollOffset, scrollThreshold){
+							$(document).trigger('ias.scroll', [scrollOffset, scrollThreshold]);
 							SgyIAS._log({eventName: 'scroll', scrollOffset: scrollOffset, scrollThreshold: scrollThreshold});
 						});
 						window.ias.on('load', function(event){
+							$(document).trigger('ias.load', [event]);
 							SgyIAS._log({eventName:'load', event: event});
 						});
 						window.ias.on('loaded', function(data, items){
+							$(document).trigger('ias.loaded', [data, items]);
 							SgyIAS._log({eventName: 'loaded', data: data, items: items});
 						});
 						window.ias.on('render', function(items){
+							$(document).trigger('ias.render', [items]);
 							SgyIAS._log({eventName: 'render', items: items});
 						});
 						window.ias.on('rendered', function(items){
+							$(document).trigger('ias.rendered', [items]);
 							SgyIAS._log({eventName: 'render', items: items});
 						});
 						window.ias.on('noneLeft', function(){
+							$(document).trigger('ias.noneLeft');
 							SgyIAS._log({eventName: 'noneLeft'});
 						});
 						window.ias.on('next', function(url){
+							$(document).trigger('ias.next', url);
 							SgyIAS._log({eventName: 'next', url: url});
 						});
 						window.ias.on('ready', function(){
+							$(document).trigger('ias.ready');
 							SgyIAS._log({eventName: 'ready'});
 						});
 
@@ -178,7 +186,7 @@
 						}
 
 						SgyIAS._log('Done loading IAS.');
-                        $(document).trigger( "infiniteScrollReady");
+                        			$(document).trigger( "infiniteScrollReady");
 					});
 			});
 		}
