@@ -63,7 +63,7 @@
 	}();
 
 	window.SgyIAS = {
-		debug: false,
+		debug: <?php echo $helper->getConfigData('general/debug'); ?>,
 		_log: function(object) {
 			if(this.debug) {
 				console.log(object);
@@ -178,7 +178,7 @@
 						}
 
 						SgyIAS._log('Done loading IAS.');
-                        $(document).trigger( "infiniteScrollReady");
+                                                $(document).trigger( "infiniteScrollReady", [window.ias]);
 					});
 			});
 		}
