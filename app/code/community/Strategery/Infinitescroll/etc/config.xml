@@ -17,14 +17,14 @@
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
  *
- * @author     Damian A. Pastorini (admin@dwdesigner.com)
- * @link       http://www.dwdesigner.com/
+ * @author     Damian A. Pastorini (damian.pastorini@dwdeveloper.com)
+ * @link       http://www.dwdeveloper.com/
  */
 -->
 <config>
     <modules>
         <Strategery_Infinitescroll>
-            <version>3.2.2</version>
+            <version>3.2.3</version>
         </Strategery_Infinitescroll>
     </modules>
     <global>
