@@ -63,6 +63,7 @@ If you have a different theme other than the default, you will need to copy the 
 
 ### Development Notes
 To hook to window.ias you need to listen the window.onload event:
+
 `jQuery(window).load(function() {
     console.log('window load jquery');
     console.log(window.ias);
