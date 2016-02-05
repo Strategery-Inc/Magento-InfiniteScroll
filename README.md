@@ -60,6 +60,14 @@ If you have a different theme other than the default, you will need to copy the 
   <td>Repository</td><td>https://github.com/webcreate/infinite-ajax-scroll</td>
 </tr>
 </table>
+
+### Development Notes
+To hook to window.ias you need to listen the window.onload event:
+jQuery(window).load(function() {
+    console.log('window load jquery');
+    console.log(window.ias);
+});
+
 ------------------
 ### Release Notes
 ##### v3.1.0

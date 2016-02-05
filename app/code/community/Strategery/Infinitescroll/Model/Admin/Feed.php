@@ -16,7 +16,6 @@
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
  *
- * Update 2.0.0
  * @author     Enrique Piatti (contacto@enriquepiatti.com)
  * @link       http://www.dwdesigner.com/
  */
