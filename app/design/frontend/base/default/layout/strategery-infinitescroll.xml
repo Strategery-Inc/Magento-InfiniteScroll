@@ -40,6 +40,14 @@
         <update handle="infinitescroll"/>
     </catalogsearch_advanced_result>
 
+    <attributesplash_page_view>
+        <update handle="infinitescroll"/>
+    </attributesplash_page_view>
+
+    <splash_page_view>
+        <update handle="infinitescroll"/>
+    </splash_page_view>
+
 
     <infinitescroll>
         <reference name="head">
