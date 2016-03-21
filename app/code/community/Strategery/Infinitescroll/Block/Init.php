@@ -73,7 +73,7 @@ class Strategery_Infinitescroll_Block_Init extends Mage_Core_Block_Template
 					$productListMode = 'list';
 					break;
 				default:
-					$productListMode = 'grid';
+					$productListMode = $defaultMode;
 			}
 		}
 
