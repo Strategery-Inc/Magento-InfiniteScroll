@@ -83,7 +83,7 @@
 							delay: 600,
 							negativeMargin: <?php echo (int) $helper->getConfigData('design/buffer_px') ?>,
 							history: {
-								prev: '.prev'
+								prev: '<?php echo $helper->getConfigData('selectors/previous') ?>'
 							},
 							noneleft: {
 								text: '<?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/done_text'))) ?>',
@@ -100,7 +100,7 @@
 							trigger: {
 								text: '<?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/load_more_text'))) ?>',
 								html: '<div class="ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><a>{text}</a></div>',
-								textPrev: '<?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/load_more_text'))) ?>',
+								textPrev: '<?php echo $helper->jsQuoteEscape($this->__($helper->getConfigData('design/load_more_text_prev'))) ?>',
 								htmlPrev: '<div class="ias-trigger ias-trigger-prev" style="text-align: center; cursor: pointer;"><a>{text}</a></div>',
 								offset: <?php echo (int) $helper->getConfigData('design/load_more_threshold') ?>
 							}
