@@ -24,7 +24,7 @@
 <config>
     <modules>
         <Strategery_Infinitescroll>
-            <version>3.4.0</version>
+            <version>3.5.0</version>
         </Strategery_Infinitescroll>
     </modules>
     <global>
