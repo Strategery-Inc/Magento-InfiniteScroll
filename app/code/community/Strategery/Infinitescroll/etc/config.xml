@@ -81,6 +81,7 @@
             <selectors>
                 <content>.category-products</content>
                 <next>.next</next>
+                <previous>.previous</previous>
                 <items_grid>.products-grid</items_grid>
                 <items_list>.products-list</items_list>
                 <loading>.category-products</loading>
@@ -89,7 +90,7 @@
             </selectors>
             <design>
                 <loading_img><![CDATA[]]></loading_img>
-                <loading_text><![CDATA[<em>Loading the next set of posts...</em>]]></loading_text>
+                <loading_text><![CDATA[<em>Loading posts...</em>]]></loading_text>
                 <done_text><![CDATA[<em>Congratulations, you've reached the end of the internet.</em>]]></done_text>
                 <hide_toolbar>0</hide_toolbar>
                 <hide_pagination>1</hide_pagination>
@@ -98,6 +99,7 @@
                 <extra_scroll_px>150</extra_scroll_px>
                 <buffer_px>150</buffer_px>
                 <load_more_text>Load more items</load_more_text>
+                <load_more_text_prev>Load previous items</load_more_text_prev>
                 <load_more_threshold>5</load_more_threshold>
             </design>
             <memory>
