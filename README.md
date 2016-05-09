@@ -71,6 +71,12 @@ To hook to window.ias you need to listen the window.onload event:
 
 ------------------
 ### Release Notes
+##### v3.5.0
+- Updated jQuery IAS.
+- Fixed issue with configurable swatches.
+- Fixed previous button selector.
+- Added previous feature configuration.
+
 ##### v3.1.0
 Upgraded to IAS 2.1.3, which includes major stability and bug-fix improvements, as well as some new features.
 
