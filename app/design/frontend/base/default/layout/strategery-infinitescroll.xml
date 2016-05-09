@@ -12,7 +12,7 @@
  * @category   Strategery
  * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- * @copyright  Copyright (c) 2014 Strategery Inc. (http://usestrategery.com)
+ * @copyright  Copyright (c) 2016 Strategery Inc. (http://usestrategery.com)
  * 
  * @author     Gabriel Somoza (me@gabrielsomoza.com)
  * @link       http://gabrielsomoza.com/
@@ -48,17 +48,7 @@
         <update handle="infinitescroll"/>
     </splash_page_view>
 
-
     <infinitescroll>
-        <reference name="head">
-            <!--
-            <action method="addItem" ifconfig="infinitescroll/general/enabled">
-                <type>js</type>
-                <name>jquery/infinitescroll/https.js</name>
-            </action>
-            -->
-
-        </reference>
         <reference name="before_body_end">
             <block type="infinitescroll/init" name="infinitescroll_init">
                 <action method="setTemplate">
@@ -66,11 +56,11 @@
                 </action>
             </block>
         </reference>
-        <!--<reference name="product_list_toolbar">-->
-            <!--<action method="setTemplate" ifconfig="infinitescroll/design/hide_toolbar">-->
-                <!--<template>strategery/infinitescroll/toolbar.phtml</template>-->
-            <!--</action>-->
-        <!--</reference>-->
+        <!-- fix for configurable swatches: -->
+        <reference name="product_list.name.after">
+            <block type="core/template" name="product_list.infinitescroll" template="strategery/infinitescroll/swatches.phtml"/>
+        </reference>
+        <!-- fix for configurable swatches. -->
     </infinitescroll>
 
 </layout>
