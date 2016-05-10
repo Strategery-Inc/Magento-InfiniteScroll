@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Strategery InfiniteScroll2 - Magento 2 Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2016 Strategery Inc. (http://www.strategery.io/)
+ * @author     Damian A. Pastorini (damian.pastorini@dwdeveloper.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <strategery_infinitescroll2>
+            <general>
+                <enabled>1</enabled>
+                <debug>1</debug>
+                <jquery>1</jquery>
+            </general>
+            <instances>
+                <grid>1</grid>
+                <layer>1</layer>
+                <search>1</search>
+                <advanced>1</advanced>
+            </instances>
+            <selectors>
+                <content>.column.main</content>
+                <next>.next</next>
+                <previous>.previous</previous>
+                <items_grid>.products-grid</items_grid>
+                <items_list>.products-list</items_list>
+                <loading>.column.main</loading>
+                <toolbar>.toolbar</toolbar>
+                <pagination>.toolbar .limiter</pagination>
+            </selectors>
+            <design>
+                <loading_img><![CDATA[]]></loading_img>
+                <loading_text><![CDATA[<em>Loading posts...</em>]]></loading_text>
+                <done_text><![CDATA[<em>Congratulations, you've reached the end of the internet.</em>]]></done_text>
+                <hide_toolbar>0</hide_toolbar>
+                <hide_pagination>1</hide_pagination>
+                <animate>0</animate>
+                <local_mode>0</local_mode>
+                <extra_scroll_px>150</extra_scroll_px>
+                <buffer_px>150</buffer_px>
+                <load_more_text>Load more items</load_more_text>
+                <load_more_text_prev>Load previous items</load_more_text_prev>
+                <load_more_threshold>5</load_more_threshold>
+            </design>
+            <memory>
+                <enabled>1</enabled>
+            </memory>
+            <advanced>
+                <ias_config>ias_config.js</ias_config>
+            </advanced>
+        </strategery_infinitescroll2>
+    </default>
+</config>
