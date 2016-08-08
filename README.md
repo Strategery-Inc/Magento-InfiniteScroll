@@ -71,6 +71,9 @@ To hook to window.ias you need to listen the window.onload event:
 
 ------------------
 ### Release Notes
+##### v3.5.1
+- Fixed items height implementing window delayed-resize trigger.
+
 ##### v3.5.0
 - Updated jQuery IAS.
 - Fixed issue with configurable swatches.
