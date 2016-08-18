@@ -70,7 +70,7 @@
             <general>
                 <enabled>1</enabled>
                 <debug>1</debug>
-                <jquery>1</jquery>
+                <jquery>0</jquery>
             </general>
             <instances>
                 <grid>1</grid>
