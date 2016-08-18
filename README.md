@@ -5,7 +5,7 @@ This extension is for when the user reaches the end of the current product list,
 ### Installation
 
 #### Magento Connect (Stable)
-1. Download from Magento Connect: http://www.magentocommerce.com/magento-connect/strategery-infinitescroll-2-9213.html
+1. Download from Magento Connect: https://www.magentocommerce.com/magento-connect/strategery-infinitescroll.html
 2. Configure the selectors for your theme on System / Configuration section.
 3. Refresh your Magento cache.
 4. Scroll to infinity and beyond!
@@ -25,7 +25,7 @@ Useful for quickly grabbing development copy.
 3. Run `composer update` to install.
 
 ### Configuration
-If you have a different theme other than the default, you will need to copy the default theme files to your custom theme folder and configure the plugin by going to System / Configuration / Strategery / Infinite Scroll.
+If you have a different theme other than the default, you will need to copy the default theme files to your custom theme folder and configure the plugin by going to System / Configuration / Strategery / InfiniteScroll.
 
 ### Demo
 <table>
@@ -62,15 +62,14 @@ If you have a different theme other than the default, you will need to copy the 
 </table>
 
 ### Development Notes
-To hook to window.ias you need to listen the window.onload event:
-
-`jQuery(window).load(function() {
-    console.log('window load jquery');
-    console.log(window.ias);
-});`
+To hook to window.ias you can listen our custom event "infiniteScrollReady".
 
 ------------------
 ### Release Notes
+##### v3.5.2
+- Changed default configuration to prevent issues with jQuery in RWD/default theme.
+- Added $j validation to prevent issues with other themes.
+
 ##### v3.5.1
 - Fixed items height implementing window delayed-resize trigger.
 
