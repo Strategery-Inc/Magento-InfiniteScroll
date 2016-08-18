@@ -145,7 +145,7 @@
 						});
 						window.ias.on('rendered', function(items){
 							SgyIAS._log({eventName: 'render', items: items});
-							if($j != undefined) {
+							if (typeof $j !== 'undefined' && !!$j) {
 								$j(window).trigger('delayed-resize');
 							}
 						});
