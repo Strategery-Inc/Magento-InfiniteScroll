@@ -24,7 +24,7 @@
 <config>
     <modules>
         <Strategery_Infinitescroll>
-            <version>3.5.1</version>
+            <version>3.5.2</version>
         </Strategery_Infinitescroll>
     </modules>
     <global>
@@ -70,7 +70,7 @@
             <general>
                 <enabled>1</enabled>
                 <debug>1</debug>
-                <jquery>1</jquery>
+                <jquery>0</jquery>
             </general>
             <instances>
                 <grid>1</grid>
