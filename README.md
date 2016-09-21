@@ -64,6 +64,11 @@ If you have a different theme other than the default, you will need to copy the 
 ### Development Notes
 To hook to window.ias you can listen our custom event "infiniteScrollReady".
 
+If you need to add a custom layered navigation (like AheadWorks Layered Navigation or anything else that makes AJAX calls to update the product list or grid), just make sure to destroy the current IAS object and after that reinitialize SgyIAS by adding the following at the end of the function that calls the new content:
+`window.ias.destroy();
+SgyIAS.init();`
+Of course, you need to update any parameters that you pass to SgyIAS and change with the new content.
+
 ------------------
 ### Release Notes
 ##### v3.5.2
