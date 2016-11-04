@@ -11,7 +11,12 @@
   "authors": [
     {
       "name": "Gabriel Somoza",
-      "email": "contact@gabrielsomoza.com",
+      "email": "gabriel@strategery.io",
+      "role": "Author/Maintainer"
+    },
+    {
+      "name": "Damian Pastorini",
+      "email": "damian.pastorini@strategery.io",
       "role": "Author/Maintainer"
     }
   ]

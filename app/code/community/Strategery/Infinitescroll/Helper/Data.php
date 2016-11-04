@@ -12,88 +12,94 @@
  * @package    Strategery_Infinitescroll
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @copyright  Copyright (c) 2014 Strategery Inc. (http://usestrategery.com)
- * 
- * @author     Gabriel Somoza (me@gabrielsomoza.com)
- * @link       http://gabrielsomoza.com/
  *
- * @author     Damian A. Pastorini (damian.pastorini@dwdeveloper.com)
- * @link       http://www.dwdeveloper.com/
+ * @author     Gabriel Somoza (gabriel@strategery.io)
+ * @link       https://strategery.io
+ *
+ * @author     Damian A. Pastorini (damian.pastorini@strategery.io)
+ *
  */
 class Strategery_Infinitescroll_Helper_Data extends Mage_Core_Helper_Abstract
 {
 
     protected $_optionsMap;
 
-
-    public function getConfigData($node) 
-	{
+    /**
+     * @param $node
+     * @return mixed
+     */
+    public function getConfigData($node)
+    {
         return Mage::getStoreConfig('infinitescroll/' . $node);
     }
 
-	public function isMemoryActive()
-	{
-		return $this->getConfigData('memory/enabled');
-	}
-	
-//	public function isScrollCall()
-//	{
-//		$result=false;
-//		if(Mage::app()->getRequest()->getParam('scrollCall')==1) {
-//			$result=true;
-//		}
-//		return $result;
-//	}
-	
-	public function getNextPageNumber()
-	{
-		return Mage::app()->getRequest()->getParam('p');
-	}
-	
-	public function getSession()
-	{
-		return Mage::getSingleton("core/session");
-	}
-	
+    /**
+     * @return mixed
+     */
+    public function isMemoryActive()
+    {
+        return $this->getConfigData('memory/enabled');
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getNextPageNumber()
+    {
+        return Mage::app()->getRequest()->getParam('p');
+    }
 
-	public function isEnabled()
-	{
-		return Mage::getStoreConfig('infinitescroll/general/enabled');
-	}
+    /**
+     * @return mixed
+     */
+    public function getSession()
+    {
+        return Mage::getSingleton("core/session");
+    }
 
+    /**
+     * @return mixed
+     */
+    public function isEnabled()
+    {
+        return Mage::getStoreConfig('infinitescroll/general/enabled');
+    }
 
-	public function getCurrentPageType()
-	{
-		// TODO: we could do this with the full path to the request directly
-		$where = 'grid';
-		/** @var Mage_Catalog_Model_Category $currentCategory */
-		$currentCategory = Mage::registry('current_category');
-		if ($currentCategory) {
-			$where = "grid";
-			if($currentCategory->getIsAnchor()){
-				$where = "layer";
-			}
-		}
-		$controller = Mage::app()->getRequest()->getControllerName();
-		if ( $controller == "result"){ $where = "search"; }
-		else if ( $controller == "advanced") { $where = "advanced"; }
-		return $where;
-	}
+    /**
+     * @return string
+     */
+    public function getCurrentPageType()
+    {
+        $where = 'grid';
+        /** @var Mage_Catalog_Model_Category $currentCategory */
+        $currentCategory = Mage::registry('current_category');
+        if ($currentCategory) {
+            $where = "grid";
+            if ($currentCategory->getIsAnchor()) {
+                $where = "layer";
+            }
+        }
 
-	/**
-	 * check general and instance enable
-	 * @return bool
-	 */
-	public function isEnabledInCurrentPage()
-	{
-		$pageType = $this->getCurrentPageType();
-		return $this->isEnabled() && Mage::getStoreConfig('infinitescroll/instances/'.$pageType);
-	}
+        $controller = Mage::app()->getRequest()->getControllerName();
+        if ($controller == "result") {
+            $where = "search";
+        } else if ($controller == "advanced") {
+            $where = "advanced";
+        }
 
-//	public function getSizeLimitForCurrentPage()
-//	{
-//		$pageType = $this->getCurrentPageType();
-//		return Mage::getStoreConfig('infinitescroll/instances/size_'.$pageType.'');
-//	}
+        return $where;
+    }
+
+    /**
+     *
+     * Check general and instance enable.
+     *
+     * @return bool
+     */
+    public function isEnabledInCurrentPage()
+    {
+        $pageType = $this->getCurrentPageType();
+        return $this->isEnabled() && Mage::getStoreConfig('infinitescroll/instances/'.$pageType);
+    }
 
 }

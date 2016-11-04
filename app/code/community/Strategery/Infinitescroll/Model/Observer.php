@@ -13,19 +13,22 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @copyright  Copyright (c) 2014 Strategery Inc. (http://usestrategery.com)
  *
- * @author     Gabriel Somoza (me@gabrielsomoza.com)
- * @link       http://gabrielsomoza.com/
+ * @author     Gabriel Somoza (gabriel@strategery.io)
+ * @link       https://strategery.io
  *
- * @author     Enrique Piatti (contacto@enriquepiatti.com)
- * @link       http://www.dwdesigner.com/
+ * @author     Damian A. Pastorini (damian.pastorini@strategery.io)
+ *
  */
-class Strategery_Infinitescroll_Model_Observer {
+class Strategery_Infinitescroll_Model_Observer
+{
 
-	public function controllerActionPredispatch($event)
-	{
-		if (Mage::getSingleton('admin/session')->isLoggedIn()) {
-			$feedModel = Mage::getModel('infinitescroll/admin_feed');
-			$feedModel->checkUpdate();
-		}
-	}
+    public function controllerActionPredispatch($event)
+    {
+        if (Mage::getSingleton('admin/session')->isLoggedIn()) {
+            $feedModel = Mage::getModel('infinitescroll/admin_feed');
+            $feedModel->checkUpdate();
+        }
+
+    }
+
 }

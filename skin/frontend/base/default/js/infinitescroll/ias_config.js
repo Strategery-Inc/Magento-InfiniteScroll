@@ -3,6 +3,8 @@ window.ias_config = {
 };
 
 /* IS Custom Event to Hook into */
-/*jQuery(document).on('infiniteScrollReady',function(){
- console.log('bam!');
- });*/
+/*
+jQuery(document).on('infiniteScrollReady',function(){
+    console.log('bam!');
+});
+*/

@@ -13,39 +13,35 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  * @copyright  Copyright (c) 2014 Strategery Inc. (http://usestrategery.com)
  *
- * @author     Gabriel Somoza (me@gabrielsomoza.com)
- * @link       http://gabrielsomoza.com/
+ * @author     Gabriel Somoza (gabriel@strategery.io)
+ * @link       https://strategery.io
  *
- * @author     Enrique Piatti (contacto@enriquepiatti.com)
- * @link       http://www.dwdesigner.com/
+ * @author     Damian A. Pastorini (damian.pastorini@strategery.io)
+ *
  */
 class Strategery_Infinitescroll_Model_Admin_Feed extends Mage_AdminNotification_Model_Feed
 {
 
-	const FEED_URL = 'usestrategery.com/infinite_scroll/feed/';
+    const FEED_URL = 'strategery.io/infinite_scroll/feed/';
 
-	public function getFeedUrl()
-	{
-		if (is_null($this->_feedUrl)) {
-//			$this->_feedUrl = (Mage::getStoreConfigFlag(self::XML_USE_HTTPS_PATH) ? 'https://' : 'http://')
-//				. self::FEED_URL;
+    public function getFeedUrl()
+    {
+        if ($this->_feedUrl === null) {
+            $this->_feedUrl = 'http://'.self::FEED_URL;
+        }
 
-			$this->_feedUrl = 'http://'.self::FEED_URL;
+        return $this->_feedUrl;
+    }
 
-		}
-		return $this->_feedUrl;
-	}
+    public function getLastUpdate()
+    {
+        return Mage::app()->loadCache('infinitescroll_notifications_lastcheck');
+    }
 
-	public function getLastUpdate()
-	{
-		return Mage::app()->loadCache('infinitescroll_notifications_lastcheck');
-	}
-
-	public function setLastUpdate()
-	{
-		Mage::app()->saveCache(time(), 'infinitescroll_notifications_lastcheck');
-		return $this;
-	}
-
+    public function setLastUpdate()
+    {
+        Mage::app()->saveCache(time(), 'infinitescroll_notifications_lastcheck');
+        return $this;
+    }
 
 }

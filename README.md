@@ -71,6 +71,9 @@ Of course, you need to update any parameters that you pass to SgyIAS and change 
 
 ------------------
 ### Release Notes
+##### v3.5.3
+- Small refactor for Marketplace migration.
+
 ##### v3.5.2
 - Changed default configuration to prevent issues with jQuery in RWD/default theme.
 - Added $j validation to prevent issues with other themes.
