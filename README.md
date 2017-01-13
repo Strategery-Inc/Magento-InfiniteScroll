@@ -24,6 +24,10 @@ Useful for quickly grabbing development copy.
     `"strategery-inc/magento-infinitescroll": "dev-master"`
 3. Run `composer update` to install.
 
+#### Trouble Installing?
+
+If you need help with the installation, we offer a commercial installation service. [Request a quote here](https://pipedrivewebforms.com/form/80d2ad83a4283978732a199e556a7ab51252828).
+
 ### Configuration
 If you have a different theme other than the default, you will need to copy the default theme files to your custom theme folder and configure the plugin by going to System / Configuration / Strategery / InfiniteScroll.
 
