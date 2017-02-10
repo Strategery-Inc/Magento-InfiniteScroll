@@ -23,10 +23,12 @@
 ?>
 <?php
 $_product = $this->getProduct();
+$productId = $_product->getId();
 $csmfHelper = Mage::helper('configurableswatches/mediafallback');
 $swatchImageFallback = $csmfHelper->getConfigurableImagesFallbackArray($_product, array('small_image'), true);
+$swatchJson = Mage::helper('core')->jsonEncode($swatchImageFallback);
 ?>
 <script type="text/javascript">
-	ConfigurableMediaImages.setImageFallback(<?php echo $_product->getId(); ?>, jQuery.parseJSON('<?php echo Mage::helper('core')->jsonEncode($swatchImageFallback); ?>'));
-	ConfigurableSwatchesList.init();
+    ConfigurableMediaImages.setImageFallback(<?php echo $productId; ?>, jQuery.parseJSON('<?php echo $swatchJson; ?>'));
+    ConfigurableSwatchesList.init();
 </script>

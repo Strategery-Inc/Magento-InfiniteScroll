@@ -22,14 +22,13 @@
 class Strategery_Infinitescroll_Model_Admin_Feed extends Mage_AdminNotification_Model_Feed
 {
 
-    const FEED_URL = 'strategery.io/infinite_scroll/feed/';
+    const FEED_URL = 'http://strategery.io/infinite_scroll/feed/';
 
     public function getFeedUrl()
     {
         if ($this->_feedUrl === null) {
-            $this->_feedUrl = 'http://'.self::FEED_URL;
+            $this->_feedUrl = self::FEED_URL;
         }
-
         return $this->_feedUrl;
     }
 
@@ -40,7 +39,8 @@ class Strategery_Infinitescroll_Model_Admin_Feed extends Mage_AdminNotification_
 
     public function setLastUpdate()
     {
-        Mage::app()->saveCache(time(), 'infinitescroll_notifications_lastcheck');
+        $now = Varien_Date::now();
+        Mage::app()->saveCache($now, 'infinitescroll_notifications_lastcheck');
         return $this;
     }
 
