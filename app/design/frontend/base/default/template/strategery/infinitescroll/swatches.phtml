@@ -1,0 +1,29 @@
+<?php
+/** @var $this Mage_Core_Block_Template */
+/**
+ * InfiniteScroll - Magento Integration
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0),
+ * available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ *
+ * @category   Strategery
+ * @package    Strategery_Infinitescroll
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  Copyright (c) 2016 Strategery Inc. (http://usestrategery.com)
+ *
+ * @author     Damian A. Pastorini (damian.pastorini@dwdeveloper.com)
+ * @link       http://www.dwdeveloper.com/
+ */
+?>
+<?php
+$_product = $this->getProduct();
+$csmfHelper = Mage::helper('configurableswatches/mediafallback');
+$swatchImageFallback = $csmfHelper->getConfigurableImagesFallbackArray($_product, array('small_image'), true);
+?>
+<script type="text/javascript">
+	ConfigurableMediaImages.setImageFallback(<?php echo $_product->getId(); ?>, jQuery.parseJSON('<?php echo Mage::helper('core')->jsonEncode($swatchImageFallback); ?>'));
+	ConfigurableSwatchesList.init();
+</script>
