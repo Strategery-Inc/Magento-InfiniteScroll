@@ -39,8 +39,7 @@ class Strategery_Infinitescroll_Model_Admin_Feed extends Mage_AdminNotification_
 
     public function setLastUpdate()
     {
-        $now = Varien_Date::now();
-        Mage::app()->saveCache($now, 'infinitescroll_notifications_lastcheck');
+        Mage::app()->saveCache(\time(), 'infinitescroll_notifications_lastcheck');
         return $this;
     }
 
