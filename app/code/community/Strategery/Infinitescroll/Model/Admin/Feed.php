@@ -22,7 +22,7 @@
 class Strategery_Infinitescroll_Model_Admin_Feed extends Mage_AdminNotification_Model_Feed
 {
 
-    const FEED_URL = 'http://strategery.io/infinite_scroll/feed/';
+    const FEED_URL = 'https://strategery.io/infinite_scroll/feed/';
 
     public function getFeedUrl()
     {
