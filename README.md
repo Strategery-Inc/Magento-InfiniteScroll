@@ -1,3 +1,7 @@
+# END OF LIFE
+This FREE extension for Magento 1.x will be no longer maintained by the original developers and no more support will be provided on the ticketing system or via email. You may still use it, fork it, etc, as usual – of course at your own risk (see license). Thanks to the many thousands of merchants who used the extension, and all the developers who contributed to it over the years!
+
+
 Strategery InfiniteScroll
 =====================
 This extension is for when the user reaches the end of the current product list, the next page is loaded automatically by AJAX after the end of the list. Easy to install and configure, this module works 100% out of the box with Magento's default theme, and also gives to you the possibility to configure the custom selectors of your custom theme. Now you can get a more friendly UI by helping the user to save clicks and time.
