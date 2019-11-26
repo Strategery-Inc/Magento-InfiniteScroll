@@ -59,7 +59,7 @@
         <reference name="product_list.name.after">
             <block type="core/template" name="product_list.infinitescroll">
 	        <action method="setTemplate" ifconfig="configswatches/general/enabled">
-                        <template>strategery_infinitescroll_swatches.phtml</template>
+                        <template>strategery/infinitescroll/swatches.phtml</template>
              </action>
 	        </block>
         </reference>
